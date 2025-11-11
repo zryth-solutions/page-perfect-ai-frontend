@@ -1,10 +1,38 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && 
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Users collection - stores user profiles and roles
+    match /users/{userId} {
+      // Anyone authenticated can read any user profile (to check roles)
+      allow read: if request.auth != null;
+      
+      // Users can create their own profile on first login
+      allow create: if request.auth != null && 
+                     request.auth.uid == userId &&
+                     request.resource.data.role == 'user'; // Default role must be 'user'
+      
+      // Users can update their own profile (except role field)
+      // Only admins can update role field
+      allow update: if request.auth != null && 
+                     (request.auth.uid == userId && 
+                      request.resource.data.role == resource.data.role) ||
+                     isAdmin();
+      
+      // Only admins can delete user profiles
+      allow delete: if isAdmin();
+    }
+    
     // Books collection
     match /books/{bookId} {
-      // Users can read their own books
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      // Users can read their own books, admins can read all
+      allow read: if request.auth != null && 
+                    (resource.data.userId == request.auth.uid || isAdmin());
       
       // Users can create books with their own userId
       allow create: if request.auth != null && 
@@ -12,11 +40,11 @@ service cloud.firestore {
       
       // Users can update their own books, or admins can update any book
       allow update: if request.auth != null && 
-                     (resource.data.userId == request.auth.uid || 
-                      request.auth.token.admin == true);
+                     (resource.data.userId == request.auth.uid || isAdmin());
       
-      // Users can delete their own books
-      allow delete: if request.auth != null && resource.data.userId == request.auth.uid;
+      // Users can delete their own books, admins can delete any
+      allow delete: if request.auth != null && 
+                     (resource.data.userId == request.auth.uid || isAdmin());
     }
   }
 }

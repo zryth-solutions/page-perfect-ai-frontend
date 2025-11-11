@@ -78,7 +78,14 @@ const Login = () => {
             className="btn-gradient login-button"
             disabled={loading}
           >
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? (
+              <span className="btn-loading">
+                <span className="btn-spinner"></span>
+                Signing in...
+              </span>
+            ) : (
+              'Sign In'
+            )}
           </button>
         </form>
 

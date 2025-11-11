@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 import ReactMarkdown from 'react-markdown';
+import useMarkdownSync from '../hooks/useMarkdownSync';
 import './BookReport.css';
 
 const BookReport = () => {
@@ -18,7 +19,7 @@ const BookReport = () => {
       if (docSnap.exists()) {
         setBook({ id: docSnap.id, ...docSnap.data() });
       } else {
-        navigate('/dashboard');
+        navigate('/books');
       }
       setLoading(false);
     });
@@ -26,10 +27,20 @@ const BookReport = () => {
     return () => unsubscribe();
   }, [bookId, navigate]);
 
+  // Sync markdown files from storage to Firestore
+  useMarkdownSync(book);
+
   if (loading) {
     return (
       <div className="loading-screen">
-        <div className="spinner"></div>
+        <div className="shimmer-loader">
+          <div className="shimmer-bar"></div>
+          <div className="shimmer-bar"></div>
+          <div className="shimmer-bar"></div>
+          <div className="shimmer-bar"></div>
+          <div className="shimmer-bar"></div>
+        </div>
+        <p className="loading-text">Loading book report...</p>
       </div>
     );
   }
@@ -41,7 +52,7 @@ const BookReport = () => {
   return (
     <div className="report-container">
       <nav className="report-nav">
-        <button onClick={() => navigate('/dashboard')} className="back-button">
+        <button onClick={() => navigate('/books')} className="back-button">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M12 4L6 10L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -87,7 +98,16 @@ const BookReport = () => {
           </div>
           <div className={`report-status status-${book.status}`}>
             {book.status === 'completed' && '✓ Analysis Complete'}
-            {book.status === 'processing' && '⟳ Processing'}
+            {book.status === 'processing' && (
+              <span>
+                ⟳ Processing
+                <span className="loading-dots">
+                  <span className="loading-dot"></span>
+                  <span className="loading-dot"></span>
+                  <span className="loading-dot"></span>
+                </span>
+              </span>
+            )}
             {book.status === 'pending' && '⏱ Pending'}
           </div>
         </div>

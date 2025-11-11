@@ -1,6 +1,6 @@
 .report-container {
   min-height: 100vh;
-  background-color: var(--dark-bg);
+  background-color: var(--light-bg);
 }
 
 .report-nav {
@@ -10,6 +10,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .back-button {
@@ -17,18 +18,12 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background-color: transparent;
+  background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.2s;
-}
-
-.back-button:hover {
-  background-color: var(--hover-bg);
-  border-color: var(--text-secondary);
 }
 
 .report-main {
@@ -91,21 +86,21 @@
 }
 
 .status-completed {
-  background-color: rgba(16, 185, 129, 0.1);
-  color: var(--success);
-  border: 1px solid var(--success);
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #34d399;
 }
 
 .status-processing {
-  background-color: rgba(99, 102, 241, 0.1);
-  color: var(--primary-blue);
-  border: 1px solid var(--primary-blue);
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #60a5fa;
 }
 
 .status-pending {
-  background-color: rgba(245, 158, 11, 0.1);
-  color: var(--warning);
-  border: 1px solid var(--warning);
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fbbf24;
 }
 
 .report-content {
@@ -181,16 +176,17 @@
 }
 
 .report-body code {
-  background-color: var(--dark-bg);
+  background-color: var(--light-bg);
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 14px;
   color: var(--primary-blue);
   font-family: 'Monaco', 'Courier New', monospace;
+  border: 1px solid var(--border-color);
 }
 
 .report-body pre {
-  background-color: var(--dark-bg);
+  background-color: var(--light-bg);
   padding: 16px;
   border-radius: 8px;
   overflow-x: auto;
@@ -202,6 +198,7 @@
   background: none;
   padding: 0;
   color: var(--text-primary);
+  border: none;
 }
 
 .report-body blockquote {
@@ -215,12 +212,6 @@
 .report-body a {
   color: var(--primary-blue);
   text-decoration: none;
-  transition: color 0.2s;
-}
-
-.report-body a:hover {
-  color: var(--primary-purple);
-  text-decoration: underline;
 }
 
 .report-body hr {
@@ -243,7 +234,7 @@
 }
 
 .report-body th {
-  background-color: var(--dark-bg);
+  background-color: var(--light-bg);
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -293,22 +284,22 @@
   display: flex;
   gap: 16px;
   padding: 20px;
-  background-color: var(--dark-bg);
+  background-color: var(--light-bg);
   border-radius: 12px;
   border: 1px solid var(--border-color);
   opacity: 0.5;
-  transition: all 0.3s;
 }
 
 .step.active {
   opacity: 1;
   border-color: var(--primary-blue);
-  background-color: rgba(99, 102, 241, 0.05);
+  background-color: #eff6ff;
 }
 
 .step.completed {
   opacity: 1;
   border-color: var(--success);
+  background-color: #f0fdf4;
 }
 
 .step-icon {
@@ -384,4 +375,3 @@
     font-size: 20px;
   }
 }
-

@@ -181,7 +181,7 @@ const AdminPanel = () => {
       <nav className="admin-nav">
         <div className="nav-content">
           <div className="nav-left">
-            <img src="/page_perfect_ai.png" alt="PagePerfect AI" className="nav-logo" />
+            <img src="/page_perfect_ai.png" alt="Wrytflow AI" className="nav-logo" />
             <h1 className="nav-title gradient-text">Admin Panel</h1>
           </div>
           <div className="nav-right">

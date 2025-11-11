@@ -50,7 +50,7 @@ const Dashboard = () => {
             <path d="M22 4h-4"></path>
             <circle cx="4" cy="20" r="2"></circle>
           </svg>
-          <h1 className="mobile-title gradient-text">PagePerfect AI</h1>
+          <h1 className="mobile-title gradient-text">Wrytflow AI</h1>
         </div>
         <button onClick={handleLogout} className="mobile-logout-btn">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
@@ -71,7 +71,7 @@ const Dashboard = () => {
             <path d="M22 4h-4"></path>
             <circle cx="4" cy="20" r="2"></circle>
           </svg>
-          <h2 className="sidebar-title gradient-text">PagePerfect AI</h2>
+          <h2 className="sidebar-title gradient-text">Wrytflow AI</h2>
         </div>
 
         <nav className="sidebar-nav">

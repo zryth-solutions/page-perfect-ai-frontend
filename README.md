@@ -1,4 +1,4 @@
-# PagePerfect AI Dashboard
+# Wrytflow AI Dashboard
 
 Book auditing dashboard built with React and Firebase.
 
@@ -112,7 +112,7 @@ Builds the app for production to the `build` folder
 
 ## License
 
-© 2025 PagePerfect AI by Zryth Solutions. All rights reserved.
+© 2025 Wrytflow AI by Zryth Solutions. All rights reserved.
 
 ## Support
 

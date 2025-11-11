@@ -74,9 +74,6 @@ const UserManagement = () => {
     setCreating(true);
 
     try {
-      // Store current user
-      const currentUser = auth.currentUser;
-      
       // Create new user account
       const userCredential = await createUserWithEmailAndPassword(
         auth,

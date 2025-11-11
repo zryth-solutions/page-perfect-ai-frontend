@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { collection, doc, setDoc, getDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import './SyncAuthUsers.css';
 

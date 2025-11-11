@@ -28,9 +28,9 @@ const Login = () => {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <img src="/page_perfect_ai.png" alt="PagePerfect AI" className="login-logo" />
+          <img src="/page_perfect_ai.png" alt="Wrytflow AI" className="login-logo" />
           <h1 className="login-title">
-            Welcome to <span className="gradient-text">PagePerfect AI</span>
+            Welcome to <span className="gradient-text">Wrytflow AI</span>
           </h1>
           <p className="login-subtitle">
             Professional manuscript review with unmatched accuracy

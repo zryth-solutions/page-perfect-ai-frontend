@@ -1,4 +1,4 @@
-# PagePerfect AI - Setup Guide
+# Wrytflow AI - Setup Guide
 
 ## Quick Start
 
@@ -23,7 +23,7 @@ The app will open at `http://localhost:3000`
 Since there's no signup page, you need to create users manually in Firebase:
 
 1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Select your project: `pageperfectai`
+2. Select your project: `wrytflowai`
 3. Navigate to **Authentication** → **Users** tab
 4. Click **Add user**
 5. Enter email and password
@@ -218,7 +218,7 @@ firebase init hosting
 ```
 
 Select:
-- Use existing project: `pageperfectai`
+- Use existing project: `wrytflowai`
 - Public directory: `build`
 - Single-page app: `Yes`
 - Automatic builds: `No`

@@ -86,14 +86,14 @@ const Dashboard = () => {
           </button>
 
           <button 
-            className={`nav-item ${isActive('/books') ? 'active' : ''}`}
-            onClick={() => handleNavChange('/books')}
+            className={`nav-item ${isActive('/projects') || location.pathname.startsWith('/projects/') ? 'active' : ''}`}
+            onClick={() => handleNavChange('/projects')}
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M4 4H16C17.1046 4 18 4.89543 18 6V14C18 15.1046 17.1046 16 16 16H4C2.89543 16 2 15.1046 2 14V6C2 4.89543 2.89543 4 4 4Z" stroke="currentColor" strokeWidth="2"/>
-              <path d="M6 8H14M6 12H10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M3 7V17C3 18.1046 3.89543 19 5 19H15C16.1046 19 17 18.1046 17 17V7C17 5.89543 16.1046 5 15 5H5C3.89543 5 3 5.89543 3 7Z" stroke="currentColor" strokeWidth="2"/>
+              <path d="M3 7L10 11L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span>My Books</span>
+            <span>My Projects</span>
           </button>
 
           {/* Admin Only - User Management */}

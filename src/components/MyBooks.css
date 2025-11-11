@@ -1,5 +1,56 @@
 /* MyBooks Page Styles - Imported from Dashboard.css */
 
+/* Back Button Inline */
+.back-button-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button-inline:hover {
+  background: var(--bg-secondary);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Settings Link Button */
+.btn-settings-link {
+  display: inline;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.25rem;
+  font-size: inherit;
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
+}
+
+.btn-settings-link:hover {
+  opacity: 0.8;
+}
+
+/* Loading State */
+.content-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
 /* Table Container */
 .table-container {
   overflow: hidden;

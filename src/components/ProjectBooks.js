@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, where, onSnapshot, addDoc, updateDoc, doc } from 'firebase/firestore';
+import { collection, query, where, onSnapshot, addDoc, updateDoc, doc, getDoc, increment } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { auth, db, storage } from '../firebase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useUserRole } from '../hooks/useUserRole';
 import CircularProgress from './CircularProgress';
 import { BookTableRowSkeleton, MobileBookCardSkeleton } from './Skeleton';
 import './MyBooks.css';
 
-const MyBooks = () => {
+const ProjectBooks = () => {
+  const { projectId } = useParams();
+  const [project, setProject] = useState(null);
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
@@ -25,16 +27,18 @@ const MyBooks = () => {
   const { isAdmin, loading: roleLoading } = useUserRole(auth.currentUser);
 
   useEffect(() => {
-    if (!auth.currentUser || roleLoading) return;
+    loadProject();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projectId]);
 
-    // If admin, fetch all books; otherwise fetch only user's books
-    // Simple query without orderBy to avoid index issues
-    const q = isAdmin 
-      ? query(collection(db, 'books'))
-      : query(
-          collection(db, 'books'),
-          where('userId', '==', auth.currentUser.uid)
-        );
+  useEffect(() => {
+    if (!auth.currentUser || roleLoading || !project) return;
+
+    // Fetch books for this project - simple query without orderBy to avoid index issues
+    const q = query(
+      collection(db, 'books'),
+      where('projectId', '==', projectId)
+    );
 
     const unsubscribe = onSnapshot(
       q,
@@ -49,7 +53,7 @@ const MyBooks = () => {
           const dateB = b.uploadedAt ? new Date(b.uploadedAt) : new Date(0);
           return dateB - dateA;
         });
-        console.log('Books loaded:', booksData);
+        console.log('Books loaded for project:', booksData);
         setBooks(booksData);
         setLoading(false);
       },
@@ -61,11 +65,54 @@ const MyBooks = () => {
     );
 
     return () => unsubscribe();
-  }, [isAdmin, roleLoading]);
+  }, [isAdmin, roleLoading, project, projectId]);
+
+  const loadProject = async () => {
+    try {
+      const projectDoc = await getDoc(doc(db, 'projects', projectId));
+      
+      if (!projectDoc.exists()) {
+        alert('Project not found');
+        navigate('/projects');
+        return;
+      }
+
+      const projectData = projectDoc.data();
+      
+      // Check if user owns this project or is admin
+      if (projectData.userId !== auth.currentUser.uid && !isAdmin) {
+        alert('You do not have permission to view this project');
+        navigate('/projects');
+        return;
+      }
+
+      setProject({ id: projectDoc.id, ...projectData });
+    } catch (error) {
+      console.error('Error loading project:', error);
+      alert('Failed to load project: ' + error.message);
+      navigate('/projects');
+    }
+  };
 
   const handleFileSelect = (e) => {
     const file = e.target.files[0];
     if (file) {
+      // Check file type against project settings
+      const fileExt = file.name.split('.').pop().toLowerCase();
+      const allowedTypes = project?.settings?.allowedFileTypes || ['pdf', 'doc', 'docx', 'txt'];
+      
+      if (!allowedTypes.includes(fileExt)) {
+        alert(`File type .${fileExt} is not allowed in this project. Allowed types: ${allowedTypes.join(', ')}`);
+        return;
+      }
+
+      // Check file size
+      const maxSize = (project?.settings?.maxFileSize || 10) * 1024 * 1024; // Convert MB to bytes
+      if (file.size > maxSize) {
+        alert(`File size exceeds the maximum allowed size of ${project?.settings?.maxFileSize || 10} MB`);
+        return;
+      }
+
       setSelectedFile(file);
     }
   };
@@ -79,7 +126,7 @@ const MyBooks = () => {
 
     try {
       const timestamp = Date.now();
-      const fileName = `${auth.currentUser.uid}/${timestamp}_${selectedFile.name}`;
+      const fileName = `${projectId}/${auth.currentUser.uid}/${timestamp}_${selectedFile.name}`;
       const storageRef = ref(storage, `books/${fileName}`);
       
       const uploadTask = uploadBytesResumable(storageRef, selectedFile);
@@ -109,11 +156,19 @@ const MyBooks = () => {
               fileName: selectedFile.name,
               fileUrl: downloadURL,
               filePath: fileName,
+              projectId: projectId,
+              projectName: project.name,
               userId: auth.currentUser.uid,
               userEmail: auth.currentUser.email,
-              status: 'pending',
+              status: project.settings?.autoProcess ? 'processing' : 'pending',
               uploadedAt: new Date().toISOString(),
               reportData: null
+            });
+
+            // Increment book count in project
+            await updateDoc(doc(db, 'projects', projectId), {
+              bookCount: increment(1),
+              updatedAt: new Date().toISOString()
             });
 
             setShowUploadModal(false);
@@ -152,22 +207,17 @@ const MyBooks = () => {
     setUploadProgress(0);
 
     try {
-      // Read the markdown content from the file BEFORE uploading
       const reader = new FileReader();
       
       reader.onload = async (event) => {
         const markdownContent = event.target.result;
         
         try {
-          // Extract the folder path from the book's filePath
           const pathParts = selectedBook.filePath.split('/');
           const folderPath = pathParts.slice(0, -1).join('/');
-          
-          // Create a markdown filename based on the original file
           const originalFileName = pathParts[pathParts.length - 1];
           const baseName = originalFileName.split('.')[0];
           const markdownFileName = `${baseName}_report.md`;
-          
           const markdownPath = `${folderPath}/${markdownFileName}`;
           const storageRef = ref(storage, `books/${markdownPath}`);
           
@@ -187,7 +237,6 @@ const MyBooks = () => {
               try {
                 const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
                 
-                // Update Firestore with the markdown content we already read
                 const bookRef = doc(db, 'books', selectedBook.id);
                 await updateDoc(bookRef, {
                   reportData: markdownContent,
@@ -222,7 +271,6 @@ const MyBooks = () => {
         setUploading(false);
       };
 
-      // Read the file as text
       reader.readAsText(mdFile);
     } catch (error) {
       console.error('Upload initialization error:', error);
@@ -298,15 +346,30 @@ const MyBooks = () => {
     setCurrentPage(page);
   };
 
+  if (!project) {
+    return <div className="content-loading">Loading project...</div>;
+  }
+
   return (
     <>
       <div className="content-header">
         <div>
-          <h2 className="page-title">{isAdmin ? 'All Books' : 'My Books'}</h2>
+          <button onClick={() => navigate('/projects')} className="back-button-inline">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M12 16L6 10L12 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Back to Projects
+          </button>
+          <h2 className="page-title">{project.name}</h2>
           <p className="page-subtitle">
-            Total {books.length} book{books.length !== 1 ? 's' : ''} • 
+            {books.length} book{books.length !== 1 ? 's' : ''} • 
             {books.filter(b => b.status === 'completed').length} completed
-            {isAdmin && ' • Admin View'}
+            <button 
+              className="btn-settings-link"
+              onClick={() => navigate(`/projects/${projectId}/settings`)}
+            >
+              • Settings
+            </button>
           </p>
         </div>
         <button
@@ -322,7 +385,6 @@ const MyBooks = () => {
 
       {loading ? (
         <>
-          {/* Desktop Skeleton */}
           <div className="table-container card desktop-only">
             <table className="books-table">
               <thead>
@@ -345,7 +407,6 @@ const MyBooks = () => {
             </table>
           </div>
 
-          {/* Mobile Skeleton */}
           <div className="mobile-books-container mobile-only">
             <MobileBookCardSkeleton />
             <MobileBookCardSkeleton />
@@ -359,7 +420,7 @@ const MyBooks = () => {
             <path d="M20 20H44M20 28H44M20 36H32" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
           </svg>
           <h3>No books uploaded yet</h3>
-          <p>Upload your first manuscript to get started with AI-powered review</p>
+          <p>Upload your first manuscript to this project</p>
           <button
             onClick={() => setShowUploadModal(true)}
             className="btn-gradient"
@@ -445,39 +506,41 @@ const MyBooks = () => {
             </table>
 
             {/* Desktop Pagination */}
-            <div className="pagination">
-              <button
-                className="pagination-btn"
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-              >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M12 16L6 10L12 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              
-              <div className="pagination-numbers">
-                {[...Array(totalPages)].map((_, index) => (
-                  <button
-                    key={index + 1}
-                    className={`pagination-number ${currentPage === index + 1 ? 'active' : ''}`}
-                    onClick={() => handlePageChange(index + 1)}
-                  >
-                    {index + 1}
-                  </button>
-                ))}
-              </div>
+            {totalPages > 1 && (
+              <div className="pagination">
+                <button
+                  className="pagination-btn"
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M12 16L6 10L12 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                
+                <div className="pagination-numbers">
+                  {[...Array(totalPages)].map((_, index) => (
+                    <button
+                      key={index + 1}
+                      className={`pagination-number ${currentPage === index + 1 ? 'active' : ''}`}
+                      onClick={() => handlePageChange(index + 1)}
+                    >
+                      {index + 1}
+                    </button>
+                  ))}
+                </div>
 
-              <button
-                className="pagination-btn"
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-              >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M8 4L14 10L8 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
+                <button
+                  className="pagination-btn"
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                >
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M8 4L14 10L8 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Mobile Card View */}
@@ -595,7 +658,7 @@ const MyBooks = () => {
         <div className="modal-overlay" onClick={() => !uploading && setShowUploadModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h2>Upload New Book</h2>
+              <h2>Upload New Book to {project.name}</h2>
               <button
                 className="modal-close"
                 onClick={() => !uploading && setShowUploadModal(false)}
@@ -624,7 +687,7 @@ const MyBooks = () => {
                     type="file"
                     id="bookFile"
                     onChange={handleFileSelect}
-                    accept=".pdf,.doc,.docx,.txt"
+                    accept={project.settings?.allowedFileTypes?.map(t => `.${t}`).join(',')}
                     required
                     disabled={uploading}
                   />
@@ -636,7 +699,10 @@ const MyBooks = () => {
                     {selectedFile ? selectedFile.name : 'Choose a file'}
                   </div>
                 </div>
-                <p className="file-hint">Supported formats: PDF, DOC, DOCX, TXT</p>
+                <p className="file-hint">
+                  Allowed: {project.settings?.allowedFileTypes?.map(t => `.${t}`).join(', ') || '.pdf, .doc, .docx, .txt'} 
+                  • Max size: {project.settings?.maxFileSize || 10}MB
+                </p>
               </div>
               {uploading && (
                 <div className="upload-progress">
@@ -760,4 +826,5 @@ const MyBooks = () => {
   );
 };
 
-export default MyBooks;
+export default ProjectBooks;
+

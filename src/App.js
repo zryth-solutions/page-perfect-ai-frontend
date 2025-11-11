@@ -7,6 +7,9 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Analytics from './components/Analytics';
 import MyBooks from './components/MyBooks';
+import MyProjects from './components/MyProjects';
+import ProjectBooks from './components/ProjectBooks';
+import ProjectSettings from './components/ProjectSettings';
 import BookReport from './components/BookReport';
 import AdminPanel from './components/AdminPanel';
 import UserManagement from './components/UserManagement';
@@ -52,8 +55,11 @@ function App() {
           path="/" 
           element={user ? <Dashboard /> : <Navigate to="/login" />}
         >
-          <Route index element={<Navigate to="/analytics" replace />} />
+          <Route index element={<Navigate to="/projects" replace />} />
           <Route path="analytics" element={<Analytics />} />
+          <Route path="projects" element={<MyProjects />} />
+          <Route path="projects/:projectId/books" element={<ProjectBooks />} />
+          <Route path="projects/:projectId/settings" element={<ProjectSettings />} />
           <Route path="books" element={<MyBooks />} />
           <Route 
             path="user-management" 

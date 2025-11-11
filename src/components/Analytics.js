@@ -7,22 +7,45 @@ import './Analytics.css';
 
 const Analytics = () => {
   const [books, setBooks] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const { isAdmin, loading: roleLoading } = useUserRole(auth.currentUser);
 
   useEffect(() => {
     if (!auth.currentUser || roleLoading) return;
 
-    // If admin, fetch all books; otherwise fetch only user's books
-    const q = isAdmin 
+    // Fetch projects
+    const projectsQuery = isAdmin 
+      ? query(collection(db, 'projects'))
+      : query(
+          collection(db, 'projects'),
+          where('userId', '==', auth.currentUser.uid)
+        );
+
+    const unsubscribeProjects = onSnapshot(
+      projectsQuery,
+      (snapshot) => {
+        const projectsData = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setProjects(projectsData);
+      },
+      (error) => {
+        console.error('Error fetching projects:', error);
+      }
+    );
+
+    // Fetch books
+    const booksQuery = isAdmin 
       ? query(collection(db, 'books'))
       : query(
           collection(db, 'books'),
           where('userId', '==', auth.currentUser.uid)
         );
 
-    const unsubscribe = onSnapshot(
-      q,
+    const unsubscribeBooks = onSnapshot(
+      booksQuery,
       (snapshot) => {
         const booksData = snapshot.docs.map(doc => ({
           id: doc.id,
@@ -37,7 +60,10 @@ const Analytics = () => {
       }
     );
 
-    return () => unsubscribe();
+    return () => {
+      unsubscribeProjects();
+      unsubscribeBooks();
+    };
   }, [isAdmin, roleLoading]);
 
   return (
@@ -61,9 +87,23 @@ const Analytics = () => {
               <AnalyticsCardSkeleton />
               <AnalyticsCardSkeleton />
               <AnalyticsCardSkeleton />
+              <AnalyticsCardSkeleton />
             </>
           ) : (
             <>
+          <div className="analytics-card">
+            <div className="analytics-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M6 14V26C6 27.1046 6.89543 28 8 28H24C25.1046 28 26 27.1046 26 26V14C26 12.8954 25.1046 12 24 12H8C6.89543 12 6 12.8954 6 14Z" stroke="#8b5cf6" strokeWidth="2"/>
+                <path d="M6 14L16 19L26 14" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div className="analytics-stat">
+              <div className="stat-value">{projects.length}</div>
+              <div className="stat-label">Total Projects</div>
+            </div>
+          </div>
+
           <div className="analytics-card">
             <div className="analytics-icon">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">

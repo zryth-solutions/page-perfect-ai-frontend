@@ -111,5 +111,42 @@ export const UserTableRowSkeleton = () => {
   );
 };
 
+// Project table row skeleton
+export const ProjectTableRowSkeleton = () => {
+  return (
+    <tr className="skeleton-row">
+      <td><Skeleton width="180px" height="16px" /></td>
+      <td><Skeleton width="200px" height="16px" /></td>
+      <td><Skeleton width="60px" height="16px" /></td>
+      <td><Skeleton width="100px" height="16px" /></td>
+      <td><Skeleton width="140px" height="32px" borderRadius="6px" /></td>
+    </tr>
+  );
+};
+
+// Mobile project card skeleton
+export const MobileProjectCardSkeleton = () => {
+  return (
+    <div className="mobile-project-card card skeleton-mobile-card">
+      <div className="mobile-project-header" style={{ marginBottom: '12px' }}>
+        <Skeleton width="36px" height="36px" borderRadius="8px" />
+        <Skeleton width="60%" height="18px" />
+      </div>
+      
+      <Skeleton width="90%" height="14px" style={{ marginBottom: '8px' }} />
+      <Skeleton width="70%" height="14px" style={{ marginBottom: '12px' }} />
+      
+      <div style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+        <Skeleton width="80px" height="40px" />
+        <Skeleton width="100px" height="40px" />
+      </div>
+      
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <Skeleton width="100%" height="40px" borderRadius="8px" />
+      </div>
+    </div>
+  );
+};
+
 export default Skeleton;
 

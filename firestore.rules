@@ -4,6 +4,7 @@ service cloud.firestore {
     // Helper function to check if user is admin
     function isAdmin() {
       return request.auth != null && 
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
              get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
     
@@ -28,23 +29,56 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
     
-    // Books collection
-    match /books/{bookId} {
-      // Users can read their own books, admins can read all
-      allow read: if request.auth != null && 
-                    (resource.data.userId == request.auth.uid || isAdmin());
+    // Projects collection
+    match /projects/{projectId} {
+      // Allow authenticated users to read projects
+      // Filtering happens client-side based on userId
+      allow read: if request.auth != null;
       
-      // Users can create books with their own userId
+      // Users can create projects with their own userId
       allow create: if request.auth != null && 
                      request.resource.data.userId == request.auth.uid;
       
-      // Users can update their own books, or admins can update any book
+      // Users can update their own projects, or admins can update any project
       allow update: if request.auth != null && 
                      (resource.data.userId == request.auth.uid || isAdmin());
       
-      // Users can delete their own books, admins can delete any
+      // Users can delete their own projects, admins can delete any
       allow delete: if request.auth != null && 
                      (resource.data.userId == request.auth.uid || isAdmin());
+    }
+    
+    // Books collection
+    match /books/{bookId} {
+      // Function to check if user owns the project this book belongs to
+      function ownsProject() {
+        return request.auth != null && 
+               resource.data.projectId != null &&
+               exists(/databases/$(database)/documents/projects/$(resource.data.projectId)) &&
+               get(/databases/$(database)/documents/projects/$(resource.data.projectId)).data.userId == request.auth.uid;
+      }
+      
+      // Allow authenticated users to read books (filtering happens client-side)
+      allow read: if request.auth != null;
+      
+      // Users can create books in their projects
+      allow create: if request.auth != null && 
+                     request.resource.data.userId == request.auth.uid &&
+                     request.resource.data.projectId != null &&
+                     exists(/databases/$(database)/documents/projects/$(request.resource.data.projectId)) &&
+                     get(/databases/$(database)/documents/projects/$(request.resource.data.projectId)).data.userId == request.auth.uid;
+      
+      // Users can update books in their projects, or admins can update any book
+      allow update: if request.auth != null && 
+                     (resource.data.userId == request.auth.uid || 
+                      ownsProject() ||
+                      isAdmin());
+      
+      // Users can delete books in their projects, admins can delete any
+      allow delete: if request.auth != null && 
+                     (resource.data.userId == request.auth.uid || 
+                      ownsProject() ||
+                      isAdmin());
     }
   }
 }

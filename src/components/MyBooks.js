@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, where, onSnapshot, addDoc, updateDoc, doc } from 'firebase/firestore';
+import { collection, query, where, onSnapshot, addDoc, updateDoc, doc, deleteDoc, increment } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { auth, db, storage } from '../firebase';
 import { useNavigate } from 'react-router-dom';
@@ -20,6 +20,7 @@ const MyBooks = () => {
   const [showMdUploadModal, setShowMdUploadModal] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
   const [mdFile, setMdFile] = useState(null);
+  const [deletingBookId, setDeletingBookId] = useState(null);
   const itemsPerPage = 10;
   const navigate = useNavigate();
   const { isAdmin, loading: roleLoading } = useUserRole(auth.currentUser);
@@ -244,6 +245,36 @@ const MyBooks = () => {
     }
   };
 
+  const handleDeleteBook = async (bookId, bookTitle, projectId) => {
+    const confirmDelete = window.confirm(
+      `⚠️ Are you sure you want to delete "${bookTitle}"?\n\nThis action cannot be undone!`
+    );
+
+    if (!confirmDelete) return;
+
+    setDeletingBookId(bookId);
+
+    try {
+      // Delete the book
+      await deleteDoc(doc(db, 'books', bookId));
+      
+      // Decrement book count in project if book belongs to a project
+      if (projectId) {
+        await updateDoc(doc(db, 'projects', projectId), {
+          bookCount: increment(-1),
+          updatedAt: new Date().toISOString()
+        });
+      }
+      
+      // Analytics will automatically update since they read from the collections in real-time
+    } catch (error) {
+      console.error('Error deleting book:', error);
+      alert('Failed to delete book: ' + error.message);
+    } finally {
+      setDeletingBookId(null);
+    }
+  };
+
   const getStatusColor = (status) => {
     switch (status) {
       case 'pending':
@@ -437,6 +468,20 @@ const MyBooks = () => {
                       >
                         View Report
                       </button>
+                      <button
+                        className="btn-delete-table"
+                        onClick={() => handleDeleteBook(book.id, book.title, book.projectId)}
+                        disabled={deletingBookId === book.id}
+                        title="Delete book"
+                      >
+                        {deletingBookId === book.id ? (
+                          <span className="spinner-small"></span>
+                        ) : (
+                          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                            <path d="M6 6L14 14M6 14L14 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                          </svg>
+                        )}
+                      </button>
                       </div>
                     </td>
                   </tr>
@@ -552,6 +597,13 @@ const MyBooks = () => {
                     disabled={book.status !== 'completed'}
                   >
                     View Report
+                  </button>
+                  <button
+                    className="btn-delete-mobile"
+                    onClick={() => handleDeleteBook(book.id, book.title, book.projectId)}
+                    disabled={deletingBookId === book.id}
+                  >
+                    {deletingBookId === book.id ? 'Deleting...' : 'Delete'}
                   </button>
                 </div>
               </div>

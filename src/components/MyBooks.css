@@ -194,6 +194,68 @@
   align-items: center;
 }
 
+.btn-delete-table {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  color: #ef4444;
+}
+
+.btn-delete-table:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+}
+
+.btn-delete-table:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-delete-mobile {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  background-color: var(--card-bg);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-delete-mobile:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.btn-delete-mobile:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinner-small {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(220, 38, 38, 0.3);
+  border-top-color: #dc2626;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Pagination */
 .pagination {
   display: flex;

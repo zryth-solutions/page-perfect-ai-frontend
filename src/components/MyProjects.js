@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, where, onSnapshot, addDoc, deleteDoc, doc } from 'firebase/firestore';
+import { collection, query, where, onSnapshot, addDoc, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { useUserRole } from '../hooks/useUserRole';
@@ -114,9 +114,23 @@ const MyProjects = () => {
     setDeleting(projectId);
 
     try {
+      // First, delete all books under this project
+      const booksQuery = query(
+        collection(db, 'books'),
+        where('projectId', '==', projectId)
+      );
+      const booksSnapshot = await getDocs(booksQuery);
+      
+      const deletePromises = booksSnapshot.docs.map(bookDoc => 
+        deleteDoc(doc(db, 'books', bookDoc.id))
+      );
+      
+      await Promise.all(deletePromises);
+      
+      // Then delete the project itself
       await deleteDoc(doc(db, 'projects', projectId));
-      // Note: In a production app, you'd also want to delete all books under this project
-      // This could be done via a Cloud Function
+      
+      // Analytics will automatically update since they read from the collections in real-time
     } catch (error) {
       console.error('Error deleting project:', error);
       alert('Failed to delete project: ' + error.message);

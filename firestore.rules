@@ -10,8 +10,9 @@ service cloud.firestore {
     
     // Users collection - stores user profiles and roles
     match /users/{userId} {
-      // Anyone authenticated can read any user profile (to check roles)
-      allow read: if request.auth != null;
+      // Users can read their own profile, admins can read all profiles
+      allow read: if request.auth != null && 
+                   (request.auth.uid == userId || isAdmin());
       
       // Users can create their own profile on first login
       allow create: if request.auth != null && 
@@ -31,9 +32,9 @@ service cloud.firestore {
     
     // Projects collection
     match /projects/{projectId} {
-      // Allow authenticated users to read projects
-      // Filtering happens client-side based on userId
-      allow read: if request.auth != null;
+      // Users can read their own projects, admins can read all projects
+      allow read: if request.auth != null && 
+                   (resource.data.userId == request.auth.uid || isAdmin());
       
       // Users can create projects with their own userId
       allow create: if request.auth != null && 
@@ -58,8 +59,11 @@ service cloud.firestore {
                get(/databases/$(database)/documents/projects/$(resource.data.projectId)).data.userId == request.auth.uid;
       }
       
-      // Allow authenticated users to read books (filtering happens client-side)
-      allow read: if request.auth != null;
+      // Users can read their own books or books in their projects, admins can read all books
+      allow read: if request.auth != null && 
+                   (resource.data.userId == request.auth.uid || 
+                    ownsProject() || 
+                    isAdmin());
       
       // Users can create books in their projects
       allow create: if request.auth != null && 

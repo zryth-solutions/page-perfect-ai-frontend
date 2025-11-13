@@ -3,11 +3,13 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject, listAll } from 'firebase/storage';
 import { db, auth, storage } from '../firebase';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useUserRole } from '../hooks/useUserRole';
 import './ProjectSettings.css';
 
 const ProjectSettings = () => {
   const { projectId } = useParams();
   const navigate = useNavigate();
+  const { isAdmin, loading: roleLoading } = useUserRole(auth.currentUser);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -23,9 +25,10 @@ const ProjectSettings = () => {
   });
 
   useEffect(() => {
+    if (!auth.currentUser || roleLoading) return;
     loadProject();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projectId]);
+  }, [projectId, roleLoading]);
 
   const loadRagFiles = async () => {
     try {
@@ -65,8 +68,8 @@ const ProjectSettings = () => {
 
       const projectData = projectDoc.data();
       
-      // Check if user owns this project
-      if (projectData.userId !== auth.currentUser.uid) {
+      // Check if user owns this project or is admin
+      if (projectData.userId !== auth.currentUser.uid && !isAdmin) {
         alert('You do not have permission to edit this project');
         navigate('/projects');
         return;

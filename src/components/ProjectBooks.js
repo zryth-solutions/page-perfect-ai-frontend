@@ -28,9 +28,10 @@ const ProjectBooks = () => {
   const { isAdmin, loading: roleLoading } = useUserRole(auth.currentUser);
 
   useEffect(() => {
+    if (!auth.currentUser || roleLoading) return;
     loadProject();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projectId]);
+  }, [projectId, roleLoading]);
 
   useEffect(() => {
     if (!auth.currentUser || roleLoading || !project) return;

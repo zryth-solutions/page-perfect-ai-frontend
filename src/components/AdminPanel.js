@@ -17,7 +17,10 @@ const AdminPanel = () => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [selectedBook, setSelectedBook] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedHtmlFile, setSelectedHtmlFile] = useState(null);
   const [showUploadModal, setShowUploadModal] = useState(false);
+  const [showHtmlUploadModal, setShowHtmlUploadModal] = useState(false);
+  const [uploadType, setUploadType] = useState('md'); // 'md' or 'html'
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -58,6 +61,15 @@ const AdminPanel = () => {
       setSelectedFile(file);
     } else {
       alert('Please select a markdown file (.md or .markdown)');
+    }
+  };
+
+  const handleHtmlFileSelect = (e) => {
+    const file = e.target.files[0];
+    if (file && (file.name.endsWith('.html') || file.name.endsWith('.htm'))) {
+      setSelectedHtmlFile(file);
+    } else {
+      alert('Please select an HTML file (.html or .htm)');
     }
   };
 
@@ -114,7 +126,7 @@ const AdminPanel = () => {
               processedAt: new Date().toISOString()
             });
 
-            alert('Markdown file uploaded and report updated successfully!');
+            alert('Markdown file uploaded and Report A updated successfully!');
             setShowUploadModal(false);
             setSelectedFile(null);
             setSelectedBook(null);
@@ -141,6 +153,92 @@ const AdminPanel = () => {
 
       // Read the file as text
       reader.readAsText(selectedFile);
+    } catch (error) {
+      console.error('Upload initialization error:', error);
+      alert('Failed to start upload: ' + error.message);
+      setUploading(false);
+    }
+  };
+
+  const handleHtmlUpload = async (e) => {
+    e.preventDefault();
+    if (!selectedHtmlFile || !selectedBook) return;
+
+    setUploading(true);
+    setUploadProgress(0);
+
+    try {
+      // Read the HTML content from the file BEFORE uploading
+      const reader = new FileReader();
+      
+      reader.onload = async (event) => {
+        const htmlContent = event.target.result;
+
+        try {
+          // Extract the folder path from the book's filePath
+          const pathParts = selectedBook.filePath.split('/');
+          const folderPath = pathParts.slice(0, -1).join('/');
+          
+          // Create an HTML filename based on the original file
+          const originalFileName = pathParts[pathParts.length - 1];
+          const baseName = originalFileName.split('.')[0];
+          const htmlFileName = `${baseName}_report_b.html`;
+          
+          const htmlPath = `${folderPath}/${htmlFileName}`;
+          const storageRef = ref(storage, `books/${htmlPath}`);
+          
+          const uploadTask = uploadBytesResumable(storageRef, selectedHtmlFile);
+
+          uploadTask.on('state_changed',
+            (snapshot) => {
+              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              setUploadProgress(progress);
+            },
+            (error) => {
+              console.error('Upload error:', error);
+              alert('Failed to upload HTML file: ' + error.message);
+              setUploading(false);
+            },
+            async () => {
+              try {
+                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                
+                // Update Firestore with the HTML content we already read
+                const bookRef = doc(db, 'books', selectedBook.id);
+                await updateDoc(bookRef, {
+                  reportDataB: htmlContent,
+                  htmlFileUrl: downloadURL,
+                  htmlFileName: htmlFileName,
+                  reportBProcessedAt: new Date().toISOString()
+                });
+
+                alert('HTML file uploaded and Report B updated successfully!');
+                setShowHtmlUploadModal(false);
+                setSelectedHtmlFile(null);
+                setSelectedBook(null);
+                setUploading(false);
+                setUploadProgress(0);
+              } catch (error) {
+                console.error('Error updating document:', error);
+                alert('File uploaded but failed to update database: ' + error.message);
+                setUploading(false);
+              }
+            }
+          );
+        } catch (error) {
+          console.error('Upload initialization error:', error);
+          alert('Failed to start upload: ' + error.message);
+          setUploading(false);
+        }
+      };
+
+      reader.onerror = () => {
+        alert('Failed to read HTML file');
+        setUploading(false);
+      };
+
+      // Read the file as text
+      reader.readAsText(selectedHtmlFile);
     } catch (error) {
       console.error('Upload initialization error:', error);
       alert('Failed to start upload: ' + error.message);
@@ -267,23 +365,65 @@ const AdminPanel = () => {
                     </select>
                   </td>
                   <td>
-                    <button
-                      className="btn-upload-md"
-                      onClick={() => {
-                        setSelectedBook(book);
-                        setShowUploadModal(true);
-                      }}
-                    >
-                      Upload Report
-                    </button>
-                    {book.status === 'completed' && (
+                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                       <button
-                        className="btn-view"
-                        onClick={() => navigate(`/book/${book.id}`)}
+                        className="btn-upload-md"
+                        onClick={() => {
+                          setSelectedBook(book);
+                          setShowUploadModal(true);
+                        }}
+                        title="Upload Report A (Markdown)"
                       >
-                        View
+                        Upload Report A
                       </button>
-                    )}
+                      <button
+                        className="btn-upload-html"
+                        onClick={() => {
+                          setSelectedBook(book);
+                          setShowHtmlUploadModal(true);
+                        }}
+                        title="Upload Report B (HTML)"
+                        style={{
+                          padding: '8px 16px',
+                          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                          border: 'none',
+                          color: 'white',
+                          borderRadius: '6px',
+                          fontWeight: '600',
+                          fontSize: '13px',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        Upload Report B
+                      </button>
+                      {book.status === 'completed' && (
+                        <>
+                          {book.reportData && (
+                            <button
+                              className="btn-view"
+                              onClick={() => navigate(`/book/${book.id}?report=A`)}
+                              title="View Report A (Markdown)"
+                            >
+                              View Report A
+                            </button>
+                          )}
+                          {book.reportDataB && (
+                            <button
+                              className="btn-view"
+                              onClick={() => navigate(`/book/${book.id}?report=B`)}
+                              title="View Report B (HTML)"
+                              style={{
+                                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                                border: 'none',
+                                marginLeft: '8px'
+                              }}
+                            >
+                              View Report B
+                            </button>
+                          )}
+                        </>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ))
@@ -370,6 +510,85 @@ const AdminPanel = () => {
                     </span>
                   ) : (
                     'Upload & Process'
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showHtmlUploadModal && selectedBook && (
+        <div className="modal-overlay" onClick={() => !uploading && setShowHtmlUploadModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>Upload Report B (HTML) for "{selectedBook.title}"</h2>
+              <button
+                className="modal-close"
+                onClick={() => !uploading && setShowHtmlUploadModal(false)}
+                disabled={uploading}
+              >
+                ×
+              </button>
+            </div>
+            <form onSubmit={handleHtmlUpload} className="upload-form">
+              <div className="form-group">
+                <label>User: {selectedBook.userEmail}</label>
+                <label>Original File: {selectedBook.fileName}</label>
+              </div>
+              <div className="form-group">
+                <label htmlFor="htmlFile">Select HTML File</label>
+                <div className="file-input-wrapper">
+                  <input
+                    type="file"
+                    id="htmlFile"
+                    onChange={handleHtmlFileSelect}
+                    accept=".html,.htm"
+                    required
+                    disabled={uploading}
+                  />
+                  <div className="file-input-display">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d="M10 14V6M10 6L7 9M10 6L13 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M4 14V16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                    {selectedHtmlFile ? selectedHtmlFile.name : 'Choose an HTML file'}
+                  </div>
+                </div>
+                <p className="file-hint">Upload the .html report file (Report B) for A/B testing</p>
+              </div>
+              {uploading && (
+                <div className="upload-progress">
+                  <div className="progress-bar">
+                    <div
+                      className="progress-fill"
+                      style={{ width: `${uploadProgress}%` }}
+                    ></div>
+                  </div>
+                  <p className="progress-text">{Math.round(uploadProgress)}% uploaded</p>
+                </div>
+              )}
+              <div className="modal-actions">
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={() => setShowHtmlUploadModal(false)}
+                  disabled={uploading}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="btn-gradient"
+                  disabled={uploading || !selectedHtmlFile}
+                >
+                  {uploading ? (
+                    <span className="btn-loading">
+                      <span className="btn-spinner"></span>
+                      Uploading...
+                    </span>
+                  ) : (
+                    'Upload Report B'
                   )}
                 </button>
               </div>

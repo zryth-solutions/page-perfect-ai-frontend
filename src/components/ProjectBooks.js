@@ -20,8 +20,10 @@ const ProjectBooks = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [showMdUploadModal, setShowMdUploadModal] = useState(false);
+  const [showHtmlUploadModal, setShowHtmlUploadModal] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
   const [mdFile, setMdFile] = useState(null);
+  const [htmlFile, setHtmlFile] = useState(null);
   const [deletingBookId, setDeletingBookId] = useState(null);
   const itemsPerPage = 10;
   const navigate = useNavigate();
@@ -194,6 +196,15 @@ const ProjectBooks = () => {
     }
   };
 
+  const handleHtmlFileSelect = (e) => {
+    const file = e.target.files[0];
+    if (file && (file.name.endsWith('.html') || file.name.endsWith('.htm'))) {
+      setHtmlFile(file);
+    } else {
+      alert('Please select an HTML file (.html or .htm)');
+    }
+  };
+
   const handleMdUpload = async (e) => {
     e.preventDefault();
     if (!mdFile || !selectedBook) return;
@@ -241,7 +252,7 @@ const ProjectBooks = () => {
                   processedAt: new Date().toISOString()
                 });
 
-                alert('Markdown file uploaded and report updated successfully!');
+                alert('Markdown file uploaded and Report A updated successfully!');
                 setShowMdUploadModal(false);
                 setMdFile(null);
                 setSelectedBook(null);
@@ -267,6 +278,85 @@ const ProjectBooks = () => {
       };
 
       reader.readAsText(mdFile);
+    } catch (error) {
+      console.error('Upload initialization error:', error);
+      alert('Failed to start upload: ' + error.message);
+      setUploading(false);
+    }
+  };
+
+  const handleHtmlUpload = async (e) => {
+    e.preventDefault();
+    if (!htmlFile || !selectedBook) return;
+
+    setUploading(true);
+    setUploadProgress(0);
+
+    try {
+      const reader = new FileReader();
+      
+      reader.onload = async (event) => {
+        const htmlContent = event.target.result;
+        
+        try {
+          const pathParts = selectedBook.filePath.split('/');
+          const folderPath = pathParts.slice(0, -1).join('/');
+          const originalFileName = pathParts[pathParts.length - 1];
+          const baseName = originalFileName.split('.')[0];
+          const htmlFileName = `${baseName}_report_b.html`;
+          const htmlPath = `${folderPath}/${htmlFileName}`;
+          const storageRef = ref(storage, `books/${htmlPath}`);
+          
+          const uploadTask = uploadBytesResumable(storageRef, htmlFile);
+
+          uploadTask.on('state_changed',
+            (snapshot) => {
+              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              setUploadProgress(progress);
+            },
+            (error) => {
+              console.error('Upload error:', error);
+              alert('Failed to upload HTML file: ' + error.message);
+              setUploading(false);
+            },
+            async () => {
+              try {
+                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                
+                const bookRef = doc(db, 'books', selectedBook.id);
+                await updateDoc(bookRef, {
+                  reportDataB: htmlContent,
+                  htmlFileUrl: downloadURL,
+                  htmlFileName: htmlFileName,
+                  reportBProcessedAt: new Date().toISOString()
+                });
+
+                alert('HTML file uploaded and Report B updated successfully!');
+                setShowHtmlUploadModal(false);
+                setHtmlFile(null);
+                setSelectedBook(null);
+                setUploading(false);
+                setUploadProgress(0);
+              } catch (error) {
+                console.error('Error updating document:', error);
+                alert('File uploaded but failed to update database: ' + error.message);
+                setUploading(false);
+              }
+            }
+          );
+        } catch (error) {
+          console.error('Upload initialization error:', error);
+          alert('Failed to start upload: ' + error.message);
+          setUploading(false);
+        }
+      };
+
+      reader.onerror = () => {
+        alert('Failed to read HTML file');
+        setUploading(false);
+      };
+
+      reader.readAsText(htmlFile);
     } catch (error) {
       console.error('Upload initialization error:', error);
       alert('Failed to start upload: ' + error.message);
@@ -506,23 +596,63 @@ const ProjectBooks = () => {
                     <td>
                       <div className="actions-cell">
                         {isAdmin && (
-                          <button
-                            className="btn-upload-md"
-                            onClick={() => {
-                              setSelectedBook(book);
-                              setShowMdUploadModal(true);
-                            }}
-                          >
-                            Upload Report
-                          </button>
+                          <>
+                            <button
+                              className="btn-upload-md"
+                              onClick={() => {
+                                setSelectedBook(book);
+                                setShowMdUploadModal(true);
+                              }}
+                              title="Upload Report A (Markdown)"
+                            >
+                              Upload Report A
+                            </button>
+                            <button
+                              className="btn-upload-html"
+                              onClick={() => {
+                                setSelectedBook(book);
+                                setShowHtmlUploadModal(true);
+                              }}
+                              title="Upload Report B (HTML)"
+                              style={{
+                                padding: '8px 16px',
+                                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                                border: 'none',
+                                color: 'white',
+                                borderRadius: '6px',
+                                fontWeight: '600',
+                                fontSize: '13px',
+                                cursor: 'pointer'
+                              }}
+                            >
+                              Upload Report B
+                            </button>
+                          </>
                         )}
-                      <button
-                        className="btn-view"
-                        onClick={() => navigate(`/book/${book.id}`)}
-                        disabled={book.status !== 'completed'}
-                      >
-                        View Report
-                      </button>
+                      {book.reportData && (
+                        <button
+                          className="btn-view"
+                          onClick={() => navigate(`/book/${book.id}?report=A`)}
+                          disabled={book.status !== 'completed'}
+                          title="View Report A (Markdown)"
+                        >
+                          View Report A
+                        </button>
+                      )}
+                      {book.reportDataB && (
+                        <button
+                          className="btn-view"
+                          onClick={() => navigate(`/book/${book.id}?report=B`)}
+                          disabled={book.status !== 'completed'}
+                          title="View Report B (HTML)"
+                          style={{
+                            background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                            border: 'none'
+                          }}
+                        >
+                          View Report B
+                        </button>
+                      )}
                       <button
                         className="btn-delete-table"
                         onClick={() => handleDeleteBook(book.id, book.title)}
@@ -638,23 +768,52 @@ const ProjectBooks = () => {
                 
                 <div className="mobile-card-footer">
                   {isAdmin && (
+                    <>
+                      <button
+                        className="btn-upload-md mobile-btn-upload-md"
+                        onClick={() => {
+                          setSelectedBook(book);
+                          setShowMdUploadModal(true);
+                        }}
+                      >
+                        Upload Report A
+                      </button>
+                      <button
+                        className="btn-upload-html mobile-btn-upload-md"
+                        onClick={() => {
+                          setSelectedBook(book);
+                          setShowHtmlUploadModal(true);
+                        }}
+                        style={{
+                          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)'
+                        }}
+                      >
+                        Upload Report B
+                      </button>
+                    </>
+                  )}
+                  {book.reportData && (
                     <button
-                      className="btn-upload-md mobile-btn-upload-md"
-                      onClick={() => {
-                        setSelectedBook(book);
-                        setShowMdUploadModal(true);
-                      }}
+                      className="btn-view mobile-btn-view"
+                      onClick={() => navigate(`/book/${book.id}?report=A`)}
+                      disabled={book.status !== 'completed'}
                     >
-                      Upload Report
+                      View Report A
                     </button>
                   )}
-                  <button
-                    className="btn-view mobile-btn-view"
-                    onClick={() => navigate(`/book/${book.id}`)}
-                    disabled={book.status !== 'completed'}
-                  >
-                    View Report
-                  </button>
+                  {book.reportDataB && (
+                    <button
+                      className="btn-view mobile-btn-view"
+                      onClick={() => navigate(`/book/${book.id}?report=B`)}
+                      disabled={book.status !== 'completed'}
+                      style={{
+                        background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                        border: 'none'
+                      }}
+                    >
+                      View Report B
+                    </button>
+                  )}
                   <button
                     className="btn-delete-mobile"
                     onClick={() => handleDeleteBook(book.id, book.title)}
@@ -793,7 +952,7 @@ const ProjectBooks = () => {
         <div className="modal-overlay" onClick={() => !uploading && setShowMdUploadModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h2>Upload Report for "{selectedBook.title}"</h2>
+              <h2>Upload Report A (Markdown) for "{selectedBook.title}"</h2>
               <button
                 className="modal-close"
                 onClick={() => !uploading && setShowMdUploadModal(false)}
@@ -860,6 +1019,85 @@ const ProjectBooks = () => {
                     </span>
                   ) : (
                     'Upload & Process'
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showHtmlUploadModal && selectedBook && (
+        <div className="modal-overlay" onClick={() => !uploading && setShowHtmlUploadModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>Upload Report B (HTML) for "{selectedBook.title}"</h2>
+              <button
+                className="modal-close"
+                onClick={() => !uploading && setShowHtmlUploadModal(false)}
+                disabled={uploading}
+              >
+                ×
+              </button>
+            </div>
+            <form onSubmit={handleHtmlUpload} className="upload-form">
+              <div className="form-group">
+                <label>User: {selectedBook.userEmail}</label>
+                <label>Original File: {selectedBook.fileName}</label>
+              </div>
+              <div className="form-group">
+                <label htmlFor="htmlFile">Select HTML File</label>
+                <div className="file-input-wrapper">
+                  <input
+                    type="file"
+                    id="htmlFile"
+                    onChange={handleHtmlFileSelect}
+                    accept=".html,.htm"
+                    required
+                    disabled={uploading}
+                  />
+                  <div className="file-input-display">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d="M10 14V6M10 6L7 9M10 6L13 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M4 14V16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                    {htmlFile ? htmlFile.name : 'Choose an HTML file'}
+                  </div>
+                </div>
+                <p className="file-hint">Upload the .html report file (Report B) for A/B testing</p>
+              </div>
+              {uploading && (
+                <div className="upload-progress">
+                  <div className="progress-bar">
+                    <div
+                      className="progress-fill"
+                      style={{ width: `${uploadProgress}%` }}
+                    ></div>
+                  </div>
+                  <p className="progress-text">{Math.round(uploadProgress)}% uploaded</p>
+                </div>
+              )}
+              <div className="modal-actions">
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={() => setShowHtmlUploadModal(false)}
+                  disabled={uploading}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="btn-gradient"
+                  disabled={uploading || !htmlFile}
+                >
+                  {uploading ? (
+                    <span className="btn-loading">
+                      <span className="btn-spinner"></span>
+                      Uploading...
+                    </span>
+                  ) : (
+                    'Upload Report B'
                   )}
                 </button>
               </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 import ReactMarkdown from 'react-markdown';
@@ -9,6 +9,8 @@ import './BookReport.css';
 const BookReport = () => {
   const { bookId } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const reportType = searchParams.get('report') || 'A'; // Default to 'A'
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +19,8 @@ const BookReport = () => {
     
     const unsubscribe = onSnapshot(bookRef, (docSnap) => {
       if (docSnap.exists()) {
-        setBook({ id: docSnap.id, ...docSnap.data() });
+        const bookData = { id: docSnap.id, ...docSnap.data() };
+        setBook(bookData);
       } else {
         navigate('/books');
       }
@@ -49,14 +52,24 @@ const BookReport = () => {
     return null;
   }
 
+  const handleBack = () => {
+    // If book belongs to a project, navigate back to project books page
+    if (book?.projectId) {
+      navigate(`/projects/${book.projectId}/books`);
+    } else {
+      // Otherwise, navigate to /books (for books not in a project)
+      navigate('/books');
+    }
+  };
+
   return (
     <div className="report-container">
       <nav className="report-nav">
-        <button onClick={() => navigate('/books')} className="back-button">
+        <button onClick={handleBack} className="back-button">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M12 4L6 10L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Back to Dashboard
+          Back
         </button>
       </nav>
 
@@ -112,10 +125,26 @@ const BookReport = () => {
           </div>
         </div>
 
-        {book.status === 'completed' && book.reportData ? (
+        {book.status === 'completed' && (book.reportData || book.reportDataB) ? (
           <div className="report-content card">
             <div className="report-body">
-              <ReactMarkdown>{book.reportData}</ReactMarkdown>
+              {reportType === 'A' && book.reportData ? (
+                <ReactMarkdown>{book.reportData}</ReactMarkdown>
+              ) : reportType === 'B' && book.reportDataB ? (
+                <div 
+                  dangerouslySetInnerHTML={{ __html: book.reportDataB }}
+                  style={{ 
+                    maxWidth: '100%',
+                    overflow: 'auto'
+                  }}
+                />
+              ) : (
+                <div style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
+                  {reportType === 'A' 
+                    ? 'Report A (Markdown) is not available yet.' 
+                    : 'Report B (HTML) is not available yet.'}
+                </div>
+              )}
             </div>
           </div>
         ) : (

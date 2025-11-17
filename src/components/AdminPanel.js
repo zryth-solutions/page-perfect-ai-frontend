@@ -20,7 +20,6 @@ const AdminPanel = () => {
   const [selectedHtmlFile, setSelectedHtmlFile] = useState(null);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [showHtmlUploadModal, setShowHtmlUploadModal] = useState(false);
-  const [uploadType, setUploadType] = useState('md'); // 'md' or 'html'
   const navigate = useNavigate();
 
   useEffect(() => {

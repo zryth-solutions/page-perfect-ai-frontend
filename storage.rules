@@ -6,8 +6,9 @@ service firebase.storage {
     // so we allow authenticated users to read/write and rely on
     // application-level security and Firestore rules for access control
     match /books/{allPaths=**} {
-      // Any authenticated user can read (admins need to view all books)
-      allow read: if request.auth != null;
+      // Allow public read access (needed for MinerU API to access PDFs)
+      // MinerU is an external service that cannot authenticate
+      allow read: if true;
       
       // Any authenticated user can write (admins need to upload reports)
       allow write: if request.auth != null;

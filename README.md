@@ -33,7 +33,18 @@ Book auditing dashboard built with React and Firebase.
 npm install
 ```
 
-2. Start the development server:
+2. Configure environment variables:
+```bash
+# Copy the example environment file
+cp .env.example .env
+
+# Edit .env and add your Firebase configuration values
+# You can find these in your Firebase Console under Project Settings
+```
+
+**Important:** Never commit your `.env` file to version control. It contains sensitive credentials.
+
+3. Start the development server:
 ```bash
 npm start
 ```

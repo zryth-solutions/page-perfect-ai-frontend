@@ -11,6 +11,7 @@ import MyProjects from './components/MyProjects';
 import ProjectBooks from './components/ProjectBooks';
 import ProjectSettings from './components/ProjectSettings';
 import BookReport from './components/BookReport';
+import BookEditor from './components/BookEditor';
 import AdminPanel from './components/AdminPanel';
 import UserManagement from './components/UserManagement';
 import './App.css';
@@ -73,6 +74,10 @@ function App() {
         <Route 
           path="/book/:bookId" 
           element={user ? <BookReport /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="/book/:bookId/editor" 
+          element={user ? <BookEditor /> : <Navigate to="/login" />} 
         />
       </Routes>
     </Router>

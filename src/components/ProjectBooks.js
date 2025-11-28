@@ -595,6 +595,17 @@ const ProjectBooks = () => {
                     )}
                     <td>
                       <div className="actions-cell">
+                        <button
+                          className="btn-view"
+                          onClick={() => navigate(`/book/${book.id}/editor`)}
+                          title="Open Editor"
+                          style={{
+                            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                            border: 'none'
+                          }}
+                        >
+                          Open Editor
+                        </button>
                         {isAdmin && (
                           <>
                             <button
@@ -767,6 +778,16 @@ const ProjectBooks = () => {
                 </div>
                 
                 <div className="mobile-card-footer">
+                  <button
+                    className="btn-view mobile-btn-view"
+                    onClick={() => navigate(`/book/${book.id}/editor`)}
+                    style={{
+                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                      border: 'none'
+                    }}
+                  >
+                    Open Editor
+                  </button>
                   {isAdmin && (
                     <>
                       <button

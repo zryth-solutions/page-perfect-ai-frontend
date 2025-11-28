@@ -1,0 +1,2401 @@
+{
+    "report_metadata": {
+        "report_type": "Q&A Content Inspection Report",
+        "generated_at": "2025-11-25T17:21:37.835343",
+        "pipeline_version": "2.5",
+        "source_file": "section-a-p-1.md"
+    },
+    "summary": {
+        "total_items_analyzed": 18,
+        "items_with_errors": 5,
+        "clean_items": 13,
+        "quality_score": 72.22
+    },
+    "results_by_source_file": {
+        "section-a-p-1.md": [
+            {
+                "item_id": "(i)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "Vikram works in a team where members come from different countries and have different communication styl...",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "(i)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "Vikram works in a team where members come from different countries and have different communication styl...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually sound. The question accurately describes a scenario involving a cultural barrier to communication, and the selected answer is correct. The explanation correctly defines cultural barriers and accurately distinguishes them from interpersonal, semantic, and organizational barriers.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(i)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "Vikram works in a team where members come from different countries and have different communication styl...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(ii)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "Priya is working on a project deadline but realizes she's been procrastinating. Which aspect of Self-M...",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "(ii)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "Priya is working on a project deadline but realizes she's been procrastinating. Which aspect of Self-M...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The scenario of procrastination is accurately mapped to the self-management skill of Time Management, and the explanations for the incorrect options are also valid.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(ii)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "Priya is working on a project deadline but realizes she's been procrastinating. Which aspect of Self-M...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(iii)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "When a user wants to install a new software on their computer, what type of software needs to run firs",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "grammar",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "System Software is a broad category",
+                        "issue": "Inconsistent capitalization of the term 'System Software'. It should be in lowercase for consistency.",
+                        "suggestion": "System software is a broad category"
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "(iii)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "When a user wants to install a new software on their computer, what type of software needs to run first to manage hardware resources? [1]\n\n(a) Application Software\n\n(b) Operating System\n\n(c) Utility Software\n\n(d) System Software",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The answer, 'Operating System', is the most specific and accurate choice. The explanation correctly justifies this by highlighting the OS's primary role in managing hardware resources and providing a platform for other software, while also properly differentiating it from the broader category of 'System Software' and other distractors.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(iii)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "When a user wants to install a new software on their computer, what type of software needs to run first to manage hardware resources? [1]\n\n(a) Application Software\n\n(b) Operating System\n\n(c) Utility Software\n\n(d) System Software",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(iv)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "Before launching a new venture in an unfamiliar market, the entrepreneur's first and most critical step s...",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "analyze market demand and competition through rigorous research and analysis",
+                        "issue": "The phrase 'research and analysis' is slightly redundant, as analysis is an inherent part of the research process. Using both terms can be tautological.",
+                        "suggestion": "analyze market demand and competition through rigorous research"
+                    }
+                ],
+                "answer_issues": [
+                    {
+                        "type": "spelling",
+                        "severity": "medium",
+                        "location": "Objective Answer",
+                        "text": "Analyse",
+                        "issue": "The text uses the British English spelling ('Analyse'), which is inconsistent with the American English spelling ('analyze') used in the question. For consistency, it is better to use one form throughout.",
+                        "suggestion": "Analyze"
+                    },
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Objective Answer",
+                        "text": "Analyse market demand and competition through research and analysis",
+                        "issue": "The phrase 'research and analysis' is slightly redundant, as analysis is an inherent part of the research process. Using both terms can be tautological.",
+                        "suggestion": "Analyse market demand and competition through research"
+                    }
+                ],
+                "total_issues": 3
+            },
+            {
+                "item_id": "(iv)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "Before launching a new venture in an unfamiliar market, the entrepreneur's first and most critical step s...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually sound. The question correctly identifies a critical step in entrepreneurship, and the answer and explanation are accurate and well-justified. The item effectively tests the student's understanding of market research as a foundational entrepreneurial skill.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(iv)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "Before launching a new venture in an unfamiliar market, the entrepreneur's first and most critical step s...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(v)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "The SDGs focus on creating a sustainable future by addressing which of the following? [1]\n\n(a) Only en...",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "They include social but also economic and environmental goals.",
+                        "issue": "The phrase 'but also' is used without a preceding 'not only', which makes the sentence structure slightly awkward.",
+                        "suggestion": "They include social, economic, and environmental goals."
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "(v)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "The SDGs focus on creating a sustainable future by addressing which of the following? [1]\n\n(a) Only en...",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "contradiction",
+                        "severity": "high",
+                        "location": "Objective Answer and Explanation",
+                        "error_description": "The objective answer is given as '(c) Both environmental and social issues', which is incomplete. The explanation correctly states that the SDGs include 'environmental protection, social equality, economic growth, and peace', covering all three dimensions (social, economic, and environmental). This creates a direct contradiction between the selected answer and the explanation.",
+                        "incorrect_content": "The objective answer is '(c) Both environmental and social issues'.",
+                        "correct_information": "The SDGs address a wide range of challenges across three core dimensions: social, economic, and environmental. Therefore, a complete answer must include the economic dimension as well."
+                    }
+                ],
+                "overall_assessment": "The Q&A item has a high-severity conceptual error. The chosen answer contradicts the explanation, as it omits the economic dimension of the Sustainable Development Goals, which is a fundamental aspect of the concept.",
+                "total_errors": 1
+            },
+            {
+                "item_id": "(v)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "The SDGs focus on creating a sustainable future by addressing which of the following? [1]\n\n(a) Only en...",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "critical",
+                        "location": "Objective Answer and Explanation",
+                        "error_description": "The explanation correctly states that the SDGs address 'environmental protection, social equality, economic growth, and peace'. However, the selected objective answer is '(c) Both environmental and social issues', which omits the 'economic' dimension explicitly mentioned in the explanation. This creates a logical contradiction, as the reasoning provided in the explanation proves that the chosen answer is incomplete and therefore incorrect.",
+                        "incorrect_value_or_statement": "The selected answer is (c), which is 'Both environmental and social issues'.",
+                        "correct_value_or_statement": "Based on the explanation, the SDGs cover environmental, social, and economic dimensions. Given the options, none are fully correct, but the explanation invalidates the chosen answer (c) by highlighting the inclusion of 'economic growth'. A better question would have an option for all three.",
+                        "impact_on_final_answer": "The final answer is incorrect because it is incomplete. The contradiction between the provided answer and the explanation misleads the student about the comprehensive nature of the Sustainable Development Goals."
+                    }
+                ],
+                "solution_steps_verified": 1,
+                "overall_correctness": "incorrect",
+                "total_errors": 1
+            },
+            {
+                "item_id": "(vi)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "In the SMART goal framework, what does the T stand for? [1]\n\n(a) Tangible\n\n(b) Time-bound\n\n(c) Thorough\n\n(d) ",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "(vi)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "In the SMART goal framework, what does the T stand for? [1]\n\n(a) Tangible\n\n(b) Time-bound\n\n(c) Thorough\n\n(d) ",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The question accurately asks for the meaning of 'T' in the SMART goal framework, and the provided answer 'Time-bound' is correct. The explanation correctly defines 'Time-bound' in this context and accurately invalidates the other options.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(vi)",
+                "source_question_file": "section-a-p-1.md",
+                "source_answer_file": "section-a-p-1_ans.md",
+                "question_preview": "In the SMART goal framework, what does the T stand for? [1]\n\n(a) Tangible\n\n(b) Time-bound\n\n(c) Thorough\n\n(d) Technical",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            }
+        ],
+        "section-a-p-2.md": [
+            {
+                "item_id": "2(i)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Neha wants to reuse a formatting style from one paragraph to several other paragraphs in her Writer docu",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "2(i)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Neha wants to reuse a formatting style from one paragraph to several other paragraphs in her Writer docu",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The question accurately describes a common word processing task, and the selected answer, 'Paintbrush / Format Painter', correctly identifies the tool for this purpose. The explanation provides a clear and accurate description of the tool's function and correctly differentiates it from the other options.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(i)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Neha wants to reuse a formatting style from one paragraph to several other paragraphs in her Writer docu",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(ii)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Rahul has created a long document with multiple headings. He wants to create an interactive list at the b",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "grammar",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "Index is for keywords, not headings.",
+                        "issue": "The sentence is missing an article ('An') before the noun 'Index'.",
+                        "suggestion": "An index is for keywords, not headings."
+                    },
+                    {
+                        "type": "grammar",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "Hyperlink tool inserts links manually but doesn't generate a full list of sections.",
+                        "issue": "The sentence is missing an article ('The') before the noun phrase 'Hyperlink tool'. Using 'does not' instead of 'doesn't' is also more formal.",
+                        "suggestion": "The Hyperlink tool inserts links manually but does not generate a full list of sections."
+                    }
+                ],
+                "total_issues": 2
+            },
+            {
+                "item_id": "2(ii)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Rahul has created a long document with multiple headings. He wants to create an interactive list at the b",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The explanation accurately defines a Table of Contents and correctly distinguishes its function from Bookmarks, Indexes, and the Hyperlink Tool in the context of document navigation.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(ii)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Rahul has created a long document with multiple headings. He wants to create an interactive list at the beginning that allows readers to jump to any section by clicking. Which feature should he use? [1]\n\n(a) Bookmark\n\n(b) Table of Contents\n\n(c) Index\n\n(d) Hyperlink Tool",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(iii)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Ravi is preparing a research report in LibreOffice Writer with several chapters. He wants to automatica...",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "grammar",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "Cross-reference links specific items, not full chapter lists.",
+                        "issue": "The noun 'Cross-reference' is used as a verb. While understandable, it is grammatically awkward.",
+                        "suggestion": "The 'Cross-reference' feature links specific items, not full chapter lists."
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "2(iii)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Ravi is preparing a research report in LibreOffice Writer with several chapters. He wants to automatica...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The question describes a clear use case for generating a table of contents in a word processor. The selected answer, 'Table of Contents', is the correct feature in LibreOffice Writer for this task. The explanation accurately describes the function of a Table of Contents and correctly differentiates it from other features like Page Styles, Cross-reference, and Page Break. The underlying concept is correctly identified as 'Automated Heading Indexing'.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(iii)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Ravi is preparing a research report in LibreOffice Writer with several chapters. He wants to automatically generate a list of all chapter titles with their page numbers at the beginning of the document. Which feature should he use?\n\n(a) Page Styles\n\n(b) Table of Contents\n\n(c) Cross-reference\n\n(d) Page Break",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(iv)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Assertion (A): In LibreOffice Calc, macros help automate repetitive tasks like formatting data or per...",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "key press",
+                        "issue": "The term 'key press' is commonly written as a single compound word.",
+                        "suggestion": "keypress"
+                    },
+                    {
+                        "type": "punctuation",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "the correct explanation of A  ",
+                        "issue": "The text contains trailing whitespace at the end of the line.",
+                        "suggestion": "the correct explanation of A"
+                    }
+                ],
+                "answer_issues": [],
+                "total_issues": 2
+            },
+            {
+                "item_id": "2(iv)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Assertion (A): In LibreOffice Calc, macros help automate repetitive tasks like formatting data or per...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. Assertion (A) accurately describes the function of macros in LibreOffice Calc. Reason (R) correctly identifies a common misconception about macros by stating they record actions automatically, which is false. The selected answer, (c), and the corresponding explanation are both accurate and logically sound, correctly identifying that A is true and R is false.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(iv)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Assertion (A): In LibreOffice Calc, macros help automate repetitive tasks like formatting data or per...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(v)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Ravi, the school accountant, wants to combine expense data from three separate class budget sheets into o",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "doesn't",
+                        "issue": "The contraction \"doesn't\" is informal and should be avoided in educational content.",
+                        "suggestion": "does not"
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "2(v)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Ravi, the school accountant, wants to combine expense data from three separate class budget sheets into o",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. It accurately identifies 'Data Consolidate' as the appropriate LibreOffice Calc feature for combining data from multiple sheets. The explanations for both the correct answer and the incorrect options are sound and clearly distinguish between the functions of each feature.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(v)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Ravi, the school accountant, wants to combine expense data from three separate class budget sheets into o",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(vi)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Rohit is preparing a sales report where the products are already grouped by category (Electronics, Clo...",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "2(vi)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Rohit is preparing a sales report where the products are already grouped by category (Electronics, Clo...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The question accurately describes a scenario for using the Subtotals feature in a spreadsheet application. The selected answer is correct, and the explanation clearly justifies the choice by correctly defining the purpose of Subtotals and distinguishing it from the other incorrect options (AutoFilter, Goal Seek, and Conditional Formatting).",
+                "total_errors": 0
+            },
+            {
+                "item_id": "2(vi)",
+                "source_question_file": "section-a-p-2.md",
+                "source_answer_file": "section-a-p-2_ans.md",
+                "question_preview": "Rohit is preparing a sales report where the products are already grouped by category (Electronics, Clo...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            }
+        ],
+        "section-a-p-3.md": [
+            {
+                "item_id": "3(i)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Ishita is creating a Table of Contents in LibreOffice Writer, but it appears empty after insertion. What i",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "3(i)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Ishita is creating a Table of Contents in LibreOffice Writer, but it appears empty after insertion. What i",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question and answer are conceptually correct. The explanation accurately describes why applying heading styles is necessary for generating a Table of Contents in LibreOffice Writer and correctly refutes the other options.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "3(i)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Ishita is creating a Table of Contents in LibreOffice Writer, but it appears empty after insertion. What i",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 0,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "3(ii)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Employees in an office are sitting for long hours with poor ergonomics, leading to back and neck pain. Which",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "3(ii)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Employees in an office are sitting for long hours with poor ergonomics, leading to back and neck pain. Which",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question, the implicit answer (Ergonomic and health hazards), and the explanation are all conceptually sound. The explanation correctly identifies the relevant hazard type and provides accurate reasons for excluding other options. No conceptual errors were found.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "3(ii)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Employees in an office are sitting for long hours with poor ergonomics, leading to back and neck pain. Which",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "3(iii)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "A school database stores exam records where StudentID appears multiple times because each student has several subjects",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "3(iii)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "A school database stores exam records where StudentID appears multiple times because each student has several subjects",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question, answer, and explanation are all conceptually correct. The explanation clearly justifies the correct answer and explains why the other options are incorrect, demonstrating a good understanding of database keys, specifically composite keys.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "3(iii)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "A school database stores exam records where StudentID appears multiple times because each student has several subjects",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "3(iv)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "If a student needs to store an employee's birth date in a database table and ensure that the stored value is alw",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "3(iv)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "If a student needs to store an employee's birth date in a database table and ensure that the stored value is alw",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "misapplication",
+                        "severity": "critical",
+                        "location": "Answer text, explanation section",
+                        "error_description": "The explanation provided discusses the storage characteristics of the `VARCHAR` data type, which is completely irrelevant to the question asking for the most appropriate data type to store an employee's birth date for chronological sorting and date calculations. The question requires a data type specifically for dates, not a character string type.",
+                        "incorrect_content": "The explanation focuses on `VARCHAR` storage: \"(d) Variable based on DBMS [1] Why? VARCHAR uses only the actual characters stored, plus minimal overhead. The exact byte usage varies depending on the database engine. Some use 1 byte per character, others 2 bytes (UTF-8/Unicode). Therefore, the storage is not fixed at 50 bytes.\"",
+                        "correct_information": "For storing a birth date that requires chronological sorting and date calculations, the most appropriate data type is `DATE` or `DATETIME`. These data types are specifically designed to handle date and time values, allowing for proper chronological ordering and arithmetic operations."
+                    }
+                ],
+                "overall_assessment": "The question is valid, but the provided explanation is entirely irrelevant to the question asked. It discusses `VARCHAR` storage, whereas the question is about selecting a data type for a birth date. This makes the answer conceptually incorrect and misleading.",
+                "total_errors": 1
+            },
+            {
+                "item_id": "3(iv)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "If a student needs to store an employee's birth date in a database table and ensure that the stored value is always formatted correctly for chronological sorting and date calculations, which is the most appropriate data type to use? [1]",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "relevance",
+                        "severity": "critical",
+                        "location": "Overall Answer",
+                        "error_description": "The question asks for the most appropriate data type to store a birth date for chronological sorting and date calculations. The provided explanation, however, discusses the storage characteristics of the `VARCHAR` data type, which is a string type and entirely irrelevant to the requirements of the question. This indicates a fundamental mismatch between the question and its explanation.",
+                        "incorrect_value_or_statement": "The explanation focuses on `VARCHAR` storage rules and byte usage, stating: \"(d) Variable based on DBMS [1] Why? VARCHAR uses only the actual characters stored, plus minimal overhead. The exact byte usage varies depending on the database engine. Some use 1 byte per character, others 2 bytes (UTF-8/Unicode). Therefore, the storage is not fixed at 50 bytes.\" This entire discussion is irrelevant to selecting a data type for a birth date.",
+                        "correct_value_or_statement": "For storing a birth date that requires chronological sorting and date calculations, the most appropriate data type would be `DATE` or `DATETIME`. These data types are specifically designed for such purposes, ensuring correct formatting, allowing direct chronological sorting, and enabling date arithmetic functions.",
+                        "impact_on_final_answer": "The explanation completely misleads the student by discussing an irrelevant data type (`VARCHAR`) for the given problem, instead of guiding them towards appropriate date/time data types. This makes the entire Q&A item incorrect and counterproductive for learning the correct concept."
+                    }
+                ],
+                "solution_steps_verified": 0,
+                "overall_correctness": "incorrect",
+                "total_errors": 1
+            },
+            {
+                "item_id": "3(v)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Riya is designing a student database where one table stores student details and another stores their course enrollments. She wants to link them using a common key field to fetch related records easily. Which data model should she use?",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "3(v)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Riya is designing a student database where one table stores student details and another stores their course enrollments. She wants to link them using a common key field to fetch related records easily. Which data model should she use?",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question accurately describes a scenario best suited for a relational data model. The answer correctly identifies the Relational Data Model, and the explanation provides a clear and accurate justification for why it's the correct choice, along with valid reasons for why the other options are incorrect. All concepts are correctly applied and explained.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "3(v)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Riya is designing a student database where one table stores student details and another stores their course enrollments. She wants to link them using a common key field to fetch related records easily. Which data model should she use?",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "3(vi)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Anil maintains a database of company employees. He wants to view only those employees who work in the \"Sales\" depar",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "3(vi)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Anil maintains a database of company employees. He wants to view only those employees who work in the \"Sales\" depar",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question and explanation are conceptually sound. The explanation correctly identifies 'Query' as the appropriate feature in LibreOffice Base for filtering and displaying records based on conditions, and accurately distinguishes it from Reports, Forms, and Relationships.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "3(vi)",
+                "source_question_file": "section-a-p-3.md",
+                "source_answer_file": "section-a-p-3_ans.md",
+                "question_preview": "Anil maintains a database of company employees. He wants to view only those employees who work in the \"Sales\" depar",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            }
+        ],
+        "section-a-p-4.md": [
+            {
+                "item_id": "4(i)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Which keyboard shortcut opens the Styles sidebar in LibreOffice Writer? [1]\n\n(a) F11\n\n(b) Ctrl+Shift+S\n\n(c) Ctrl+Alt+S\n\n(d) Sshift $^+$ F11",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "spelling",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "Sshift",
+                        "issue": "Typographical error: 'Sshift' should be 'Shift'.",
+                        "suggestion": "Shift"
+                    }
+                ],
+                "answer_issues": [],
+                "total_issues": 1
+            },
+            {
+                "item_id": "4(i)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Which keyboard shortcut opens the Styles sidebar in LibreOffice Writer? [1]\n\n(a) F11\n\n(b) Ctrl+Shift+S",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question, answer, and explanation are conceptually correct. The shortcut F11 correctly opens the Styles sidebar in LibreOffice Writer, and the explanations for why other options are incorrect are accurate. There are no conceptual errors in the provided content.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "4(i)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Which keyboard shortcut opens the Styles sidebar in LibreOffice Writer? [1]\n\n(a) F11\n\n(b) Ctrl+Shift+S",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "medium",
+                        "location": "Question option (d)",
+                        "error_description": "Typographical error in option (d) of the question. 'Sshift $^+$ F11' is incorrectly formatted and should be 'Shift + F11'.",
+                        "incorrect_value_or_statement": "Sshift $^+$ F11",
+                        "correct_value_or_statement": "Shift + F11",
+                        "impact_on_final_answer": "Minor impact on the clarity of the question option, but the explanation correctly identifies the function of 'Shift+F11'."
+                    }
+                ],
+                "solution_steps_verified": 1,
+                "overall_correctness": "partially_correct",
+                "total_errors": 1
+            },
+            {
+                "item_id": "4(ii)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Sameer is analyzing sales data from multiple sheets in LibreOffice Calc. He wants to combine data and ensure changes in source sheets automatically update the consolidation. Which feature and option should he use? [1]\n\n(a) Pivot Table with AutoFilter\n\n(b) Consolidate with Link to source data enabled\n\n(c) Data Validation\n\n(d) Scenario Manager",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "spelling",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "upto-date",
+                        "issue": "Incorrect hyphenation/spelling. The correct form is 'up-to-date'.",
+                        "suggestion": "up-to-date"
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "4(ii)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Sameer is analyzing sales data from multiple sheets in LibreOffice Calc. He wants to combine data and ensure",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question and answer, along with the explanation, are conceptually correct. The explanation accurately describes the functionality of the 'Consolidate with Link to source data enabled' feature in LibreOffice Calc and correctly explains why the other options are unsuitable for the described task.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "4(ii)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Sameer is analyzing sales data from multiple sheets in LibreOffice Calc. He wants to combine data and ensure",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "4(iii)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Neha is designing a school database. She wants teachers to enter student attendance without directly opening the tables, so data entry becomes easier and errors are reduced. Which statement given below is INCORRECT? [1]\n\n(a) A query helps in entering data through a form  \n(b) A form provides a user-friendly interface for data entry  \n(c) A report helps us take printouts of the data  \n(d) A table is used for storing data",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "punctuation",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "retrieve, filter or analyze",
+                        "issue": "Missing comma in a list of three items.",
+                        "suggestion": "retrieve, filter, or analyze"
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "4(iii)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Neha is designing a school database. She wants teachers to enter student attendance without directly opening the",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question correctly identifies an incorrect statement about database components. The objective answer is correct, and the explanation accurately clarifies the function of queries, forms, reports, and tables in a database management system.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "4(iii)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Neha is designing a school database. She wants teachers to enter student attendance without directly opening the",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "4(iv)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "During work hours, employees suffer from stress and conflicts. Which approach best reduces this hazard? [1]\n\n(a) Installing ergonomic furniture only  \n(b) Providing fire extinguishers  \n(c) Stress management training and conflict resolution  \n(d) Routine electrical inspections",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "4(iv)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "During work hours, employees suffer from stress and conflicts. Which approach best reduces this hazard? [1]\n\n(a) Installing ergonomic furniture only  \n(b) Providing fire extinguishers  \n(c) Stress management training and conflict resolution  \n(d) Routine electrical inspections",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question, answer, and explanation are conceptually correct. The explanation accurately defines psychosocial hazards, their impact, and appropriate solutions, while correctly dismissing irrelevant options.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "4(iv)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "During work hours, employees suffer from stress and conflicts. Which approach best reduces this hazard? [1]\n\n(a) Installing ergonomic furniture only  \n(b) Providing fire extinguishers  \n(c) Stress management training and conflict resolution  \n(d) Routine electrical inspections",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "4(v)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Arjun has created a spreadsheet to calculate the selling price of a product based on cost price and profit percentage. He wants the profit amount to be exactly ₹5,000 while keeping the cost price fixed. Which feature of Calc should he use, and why?",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "This is exactly what Goal Seek is designed for in \"what-if\" analysis.",
+                        "issue": "Repetitive use of the phrase 'what-if' analysis, which was already mentioned in the preceding sentence.",
+                        "suggestion": "Consider rephrasing for conciseness, e.g., 'This is exactly what Goal Seek is designed for in such analyses.'"
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "4(v)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Arjun has created a spreadsheet to calculate the selling price of a product based on cost price and profit percentage. He wants the profit amount to be exactly ₹5,000 while keeping the cost price fixed. Which feature of Calc should he use, and why?",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The question accurately describes a scenario where a specific output (profit amount) is desired by adjusting a single input (profit percentage) while keeping another input (cost price) fixed. The correct answer, 'Goal Seek', is appropriately chosen, and the explanation correctly details its function and differentiates it from other 'what-if' analysis tools like Solver, Scenario Manager, and Data Table. All conceptual aspects are correct.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "4(v)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Arjun has created a spreadsheet to calculate the selling price of a product based on cost price and profit percentage. He wants the profit amount to be exactly ₹5,000 while keeping the cost price fixed. Which feature of Calc should he use, and why?",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "4(vi)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Workplace materials are classified by fire risk. Which matches the material class with its description correctly?",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "4(vi)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Workplace materials are classified by fire risk. Which matches the material class with its description correctly?",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "definition",
+                        "severity": "medium",
+                        "location": "Answer text, explanation section, 'Why (a) is wrong'",
+                        "error_description": "The explanation incorrectly defines Class B fires by excluding gases. Class B fires involve both flammable liquids and flammable gases.",
+                        "incorrect_content": "Class B is for flammable liquids, not gases.",
+                        "correct_information": "Class B fires involve flammable liquids (e.g., gasoline, oil, paint, alcohol) and flammable gases (e.g., propane, natural gas, butane)."
+                    }
+                ],
+                "overall_assessment": "The explanation for why option (a) is wrong contains a conceptual error regarding the classification of Class B fires. Class B fires include both flammable liquids and flammable gases.",
+                "total_errors": 1
+            },
+            {
+                "item_id": "4(vi)",
+                "source_question_file": "section-a-p-4.md",
+                "source_answer_file": "section-a-p-4_ans.md",
+                "question_preview": "Workplace materials are classified by fire risk. Which matches the material class with its description correctly?",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "medium",
+                        "location": "Explanation, 'Why (a) is wrong'",
+                        "error_description": "The explanation incorrectly states that Class B fires do not involve gases. Class B fires include both flammable liquids and flammable gases.",
+                        "incorrect_value_or_statement": "Class B is for flammable liquids, not gases.",
+                        "correct_value_or_statement": "Class B fires involve flammable liquids and flammable gases.",
+                        "impact_on_final_answer": "This error is in the explanation for an incorrect option, so it does not change the overall correct answer but provides inaccurate information."
+                    }
+                ],
+                "solution_steps_verified": 1,
+                "overall_correctness": "partially_correct",
+                "total_errors": 1
+            }
+        ],
+        "section-a-p-5.md": [
+            {
+                "item_id": "(i)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Deepika is preparing 8 different project reports with the same header, footer, and formatting for hea...",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "(i)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Deepika is preparing 8 different project reports with the same header, footer, and formatting for hea...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The question accurately describes a scenario where using templates is the most appropriate solution. The selected answer is correct, and the explanation clearly justifies the choice while correctly differentiating it from other options like styles, macros, and bookmarks. The concepts are well-explained for a grade 10 IT student.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(i)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Deepika is preparing 8 different project reports with the same header, footer, and formatting for hea...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(ii)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Arun wants to generate a formatted report from a query in LibreOffice Base. When he launches the Report ",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "Add Fields Dialog Box",
+                        "issue": "Inconsistent capitalization in the term 'Dialog Box'.",
+                        "suggestion": "Add Fields dialog box"
+                    }
+                ],
+                "answer_issues": [
+                    {
+                        "type": "punctuation",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "headers/footers",
+                        "issue": "Using a slash (/) can sometimes reduce readability.",
+                        "suggestion": "headers and footers"
+                    }
+                ],
+                "total_issues": 2
+            },
+            {
+                "item_id": "(ii)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Arun wants to generate a formatted report from a query in LibreOffice Base. When he launches the Report ",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "error_description": "The explanation misrepresents the workflow in LibreOffice Base. It claims the Report Builder activates when the Report Wizard is launched, but the correct sequence is that the wizard runs first to gather requirements, and then the generated report is opened in the Report Builder for detailed editing.",
+                        "incorrect_content": "When the Report Wizard is opened, Report Builder automatically activates to help design, format, and arrange the report.",
+                        "correct_information": "The Report Wizard is a step-by-step guide for creating a report. Upon completion of the wizard, the generated report is opened in the Report Builder, which is the tool that allows for detailed arrangement and design of the layout."
+                    }
+                ],
+                "overall_assessment": "The answer to the question is correct, but the explanation contains a factual error regarding the software's workflow. It incorrectly describes when the Report Builder tool is activated in relation to the Report Wizard, which could mislead students about the actual process.",
+                "total_errors": 1
+            },
+            {
+                "item_id": "(ii)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Arun wants to generate a formatted report from a query in LibreOffice Base. When he launches the Report Wizard, which tool automatically assists him in arranging and designing the report layout? [1]\n\n(a) Report Builder  \n(b) Data Source Explorer  \n(c) Add Fields Dialog Box  \n(d) Database Manager",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "error_description": "The explanation misrepresents the workflow in LibreOffice Base. It claims the Report Builder activates when the Report Wizard is launched, but the correct sequence is that the wizard runs first to gather requirements, and then the generated report is opened in the Report Builder for detailed editing.",
+                        "incorrect_value_or_statement": "When the Report Wizard is opened, Report Builder automatically activates to help design, format, and arrange the report.",
+                        "correct_value_or_statement": "The Report Wizard is a step-by-step guide for creating a report. Upon completion of the wizard, the generated report is opened in the Report Builder, which is the tool that allows for detailed arrangement and design of the layout.",
+                        "impact_on_final_answer": "The final answer is correct, but the explanation of the process is inaccurate, which could mislead students about the software's workflow."
+                    }
+                ],
+                "solution_steps_verified": 1,
+                "overall_correctness": "partially_correct",
+                "total_errors": 1
+            },
+            {
+                "item_id": "(iii)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "As a safety officer, Priya must conduct a regular procedure to ensure safe evacuation in case of emerg...",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "punctuation",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "(b)Evacuation drill",
+                        "issue": "There is no space between the option '(b)' and the word 'Evacuation'.",
+                        "suggestion": "(b) Evacuation drill"
+                    }
+                ],
+                "answer_issues": [],
+                "total_issues": 1
+            },
+            {
+                "item_id": "(iii)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "As a safety officer, Priya must conduct a regular procedure to ensure safe evacuation in case of emerg...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The question accurately describes the procedure for practicing emergency evacuation. The selected answer, 'Evacuation drill', is correct, and the explanation provides a clear and accurate definition. The explanations for why the other options are incorrect are also valid.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(iii)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "As a safety officer, Priya must conduct a regular procedure to ensure safe evacuation in case of emerg...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(iv)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Raju notices a colleague injured at work. What is the correct sequence of actions according to safety ...",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "grammar",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "Attend to injured",
+                        "issue": "The definite article 'the' is missing before the noun 'injured'. The correct phrasing should be 'Attend to the injured'.",
+                        "suggestion": "Attend to the injured"
+                    },
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "Call emergency",
+                        "issue": "The phrase 'Call emergency' is colloquial. The more formal and appropriate term in a safety protocol context is 'Call emergency services'.",
+                        "suggestion": "Call emergency services"
+                    }
+                ],
+                "answer_issues": [],
+                "total_issues": 2
+            },
+            {
+                "item_id": "(iv)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Raju notices a colleague injured at work. What is the correct sequence of actions according to safety ...",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "misapplication",
+                        "severity": "critical",
+                        "location": "Answer text and Explanation",
+                        "error_description": "The answer and explanation incorrectly state that the first action is to attend to the injured person. This contradicts fundamental safety protocols which mandate that the first step is always to check the scene for dangers to ensure the rescuer's safety before approaching the victim.",
+                        "incorrect_content": "The correct sequence is given as 'Attend to injured  $\\rightarrow$  Inform supervisor  $\\rightarrow$  Assist supervisor'. The explanation states, 'Safety protocol requires immediate care for the injured person first...'",
+                        "correct_information": "The universally accepted first aid principle is 'Check, Call, Care'. The first step is to 'Check' the scene for any hazards. The second step is to 'Call' for professional medical help. The third step is to 'Care' for the injured person."
+                    },
+                    {
+                        "type": "logic",
+                        "severity": "medium",
+                        "location": "Explanation",
+                        "error_description": "The explanation incorrectly prioritizes informing a supervisor over calling emergency services. For any serious injury, activating emergency medical services is a far higher priority than internal company reporting.",
+                        "incorrect_content": "The sequence 'Attend to injured $\\rightarrow$ Inform supervisor' is presented as correct, implying the supervisor should be contacted before emergency services.",
+                        "correct_information": "In the event of a serious injury, after ensuring the scene is safe, the next step should be to call emergency services for professional medical help. Informing a supervisor is a secondary administrative action."
+                    }
+                ],
+                "overall_assessment": "The Q&A item contains a critical conceptual error by violating the most fundamental rule of first aid: ensuring scene safety before acting. It presents a dangerously incorrect sequence of actions by prioritizing attending to the victim over checking for hazards. Furthermore, it incorrectly prioritizes internal reporting (informing a supervisor) over calling for professional medical help in a potentially serious situation. The entire premise of the question's options and the provided answer is flawed from a safety standpoint.",
+                "total_errors": 2
+            },
+            {
+                "item_id": "(iv)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Raju notices a colleague injured at work. What is the correct sequence of actions according to safety ...",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "critical",
+                        "location": "Answer and Explanation",
+                        "step_number": 1,
+                        "error_description": "The answer and explanation violate the most fundamental rule of first aid and emergency response. They state that the first action should be to 'Attend to injured', completely omitting the critical step of first checking the scene for dangers. Standard safety protocols (e.g., Check-Call-Care, DRSABCD) mandate that a rescuer must ensure the area is safe before approaching a victim to avoid becoming a casualty themselves.",
+                        "incorrect_value_or_statement": "The correct sequence is given as 'Attend to injured  $\\rightarrow$  Inform supervisor  $\\rightarrow$  Assist supervisor'. The explanation states, 'Safety protocol requires immediate care for the injured person first...'",
+                        "correct_value_or_statement": "The correct first step in any emergency situation is to 'Check' the scene for any potential hazards to the rescuer and the victim. Only after ensuring the scene is safe should one proceed to attend to the injured person.",
+                        "impact_on_final_answer": "This error makes the provided answer and the entire premise of the question dangerously incorrect. Following this advice could lead to further injuries or fatalities."
+                    },
+                    {
+                        "type": "logic",
+                        "severity": "high",
+                        "location": "Answer Options",
+                        "error_description": "The sequence of actions presented in the correct answer, 'Attend to injured $\\rightarrow$ Inform supervisor', incorrectly prioritizes informing a supervisor over calling for professional medical help. For any serious injury, activating the emergency medical services (e.g., calling an ambulance) is a far higher priority than internal company reporting.",
+                        "incorrect_value_or_statement": "The sequence 'Attend to injured $\\rightarrow$ Inform supervisor' is presented as the correct protocol.",
+                        "correct_value_or_statement": "After ensuring the scene is safe and attending to immediate life threats, the next step should be to 'Call' for professional medical help (e.g., ambulance). Informing a supervisor is a secondary action.",
+                        "impact_on_final_answer": "The answer promotes an incorrect and potentially harmful sequence of priorities in a medical emergency, which could delay critical medical care."
+                    }
+                ],
+                "solution_steps_verified": 1,
+                "overall_correctness": "incorrect",
+                "total_errors": 2
+            },
+            {
+                "item_id": "(v)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "In a busy workplace, which combination of actions maintains a safe environment?\n\n(a) Clean only your desk, ignore spills, wait for maintenance  \n(b) Clean workstation, clear machine areas, immediately clean spills, report faulty lights  \n(c) Focus on common areas only  \n(d) Leave all cleaning to maintenance staff",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "structure",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "Depending only on maintenance delays hazard removal.",
+                        "issue": "The sentence structure is awkward and grammatically incorrect, making its meaning unclear.",
+                        "suggestion": "Depending solely on the maintenance staff can delay the removal of hazards."
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "(v)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "In a busy workplace, which combination of actions maintains a safe environment?\n\n(a) Clean only your desk, ignore spills, wait for maintenance  \n(b) Clean workstation, clear machine areas, immediately clean spills, report faulty lights  \n(c) Focus on common areas only  \n(d) Leave all cleaning to maintenance staff",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item correctly identifies and explains the best practices for maintaining a safe workplace environment. The chosen answer is comprehensive and the explanation accurately details why other options are unsafe or inadequate. No conceptual errors were found.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(v)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "In a busy workplace, which combination of actions maintains a safe environment?\n\n(a) Clean only your desk, ignore spills, wait for maintenance  \n(b) Clean workstation, clear machine areas, immediately clean spills, report faulty lights  \n(c) Focus on common areas only  \n(d) Leave all cleaning to maintenance staff",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 1,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "(vi)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Two analysts, Neha and Arjun, are updating a sales report stored as Sales_Q1.ods and Sales_Q1_Updat...",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "structure",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "As Neha, which steps should you follow in LibreOffice Calc?",
+                        "issue": "The sentence structure is slightly awkward as it mixes the third-person perspective ('As Neha') with a direct second-person question ('should you follow').",
+                        "suggestion": "For better clarity, please rephrase the question to maintain a consistent perspective. For example: 'Which steps should Neha follow in LibreOffice Calc?'"
+                    }
+                ],
+                "answer_issues": [],
+                "total_issues": 1
+            },
+            {
+                "item_id": "(vi)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Two analysts, Neha and Arjun, are updating a sales report stored as Sales_Q1.ods and Sales_Q1_Updat...",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "misapplication",
+                        "severity": "medium",
+                        "location": "Explanation text",
+                        "error_description": "The explanation for why option (c) is wrong is conceptually flawed. It states that 'Track Changes works only within a shared file, not across two separate files.' This is misleading because the 'Compare Document' and 'Merge Document' features, which are designed to work with two separate files, are located under the 'Edit > Track Changes' menu. The explanation incorrectly conflates the change recording feature with the entire change tracking toolset.",
+                        "incorrect_content": "Track Changes works only within a shared file, not across two separate files.",
+                        "correct_information": "The 'Track Changes' feature set in LibreOffice Calc includes tools like 'Compare Document' and 'Merge Document', which are specifically designed to work with two separate files (an original and a modified version). While the change *recording* feature operates within a single file, the overall toolset is not limited in this way."
+                    }
+                ],
+                "overall_assessment": "The question and the selected correct answer (b) accurately represent the proper procedure for comparing and merging two separate spreadsheet files in LibreOffice Calc. However, the provided explanation for why an alternative option (c) is incorrect contains a conceptual error. It mischaracterizes the capabilities of the 'Track Changes' feature set, leading to a flawed justification.",
+                "total_errors": 1
+            },
+            {
+                "item_id": "(vi)",
+                "source_question_file": "section-a-p-5.md",
+                "source_answer_file": "section-a-p-5_ans.md",
+                "question_preview": "Two analysts, Neha and Arjun, are updating a sales report stored as Sales_Q1.ods and Sales_Q1_Updat...",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "medium",
+                        "location": "Explanation",
+                        "error_description": "The explanation for why option (c) is wrong is based on a false premise. It states, 'Track Changes works only within a shared file, not across two separate files.' This is incorrect because the 'Track Changes' menu in LibreOffice Calc (under 'Edit') contains the 'Compare Document' and 'Merge Document' tools, which are specifically designed to work with two separate files. The explanation confuses the 'Record Changes' function with the entire 'Track Changes' feature set.",
+                        "incorrect_value_or_statement": "Track Changes works only within a shared file, not across two separate files.",
+                        "correct_value_or_statement": "The 'Track Changes' feature set (found under the 'Edit' menu) includes tools like 'Compare Document' and 'Merge Document' which are specifically designed to work with two separate files. The 'Record' function tracks changes within a single file, but the overall toolset is not limited in this way.",
+                        "impact_on_final_answer": "The final answer remains correct, but the justification for eliminating an incorrect option is factually wrong. This can mislead students about the full capabilities of the 'Track Changes' feature set in LibreOffice Calc."
+                    }
+                ],
+                "solution_steps_verified": 4,
+                "overall_correctness": "partially_correct",
+                "total_errors": 1
+            }
+        ],
+        "section-b-6-15.md": [
+            {
+                "item_id": "6",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "What are the elements of the communication cycle? Explain any two [2]",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "spelling",
+                        "severity": "high",
+                        "location": "Answer explanation",
+                        "text": "vidal",
+                        "issue": "The word 'vidal' seems to be a spelling mistake.",
+                        "suggestion": "valid"
+                    },
+                    {
+                        "type": "structure",
+                        "severity": "high",
+                        "location": "Answer explanation",
+                        "text": "\\text {A n y 2 - 4 v i d a l e x p l a n a t i o n s}",
+                        "issue": "Incorrect spacing within the LaTeX text command. This will cause improper rendering of the text.",
+                        "suggestion": "\\text{Any 2-4 valid explanations}"
+                    },
+                    {
+                        "type": "structure",
+                        "severity": "high",
+                        "location": "Answer explanation",
+                        "text": "\\text {m a r k s}",
+                        "issue": "Incorrect spacing within the LaTeX text command. This will cause improper rendering of the text.",
+                        "suggestion": "\\text{marks}"
+                    }
+                ],
+                "total_issues": 3
+            },
+            {
+                "item_id": "6",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "What are the elements of the communication cycle? Explain any two [2]",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. It accurately lists the key elements of the communication cycle and provides correct explanations for two of them (Sender and Message).",
+                "total_errors": 0
+            },
+            {
+                "item_id": "6",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "What are the elements of the communication cycle? Explain any two [2]",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 3,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "7",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "Harjeet struggles with stress at work and makes hasty decisions. How can emotional intelligence help h...",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "grammar",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "\\text {m a r k e a c h}",
+                        "issue": "The text contains unnecessary spaces between letters, which is grammatically incorrect and affects readability.",
+                        "suggestion": "\\text{mark each}"
+                    },
+                    {
+                        "type": "grammar",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "\\text {m a r k s}",
+                        "issue": "The text contains unnecessary spaces between letters, which is grammatically incorrect and affects readability.",
+                        "suggestion": "\\text{marks}"
+                    }
+                ],
+                "total_issues": 2
+            },
+            {
+                "item_id": "7",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "Harjeet struggles with stress at work and makes hasty decisions. How can emotional intelligence help h...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The explanation accurately describes how the components of emotional intelligence (self-regulation and self-awareness) can help an individual manage stress and improve decision-making. The concepts are relevant to the CBSE Class 10 IT curriculum.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "7",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "Harjeet struggles with stress at work and makes hasty decisions. How can emotional intelligence help h...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 2,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "8",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "Compare a misconception (myth) with reality. Support your answer with one example. [2]",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "spelling",
+                        "severity": "high",
+                        "location": "Answer explanation",
+                        "text": "\\left(\\text {A n y 2 v i d a l c o m p a r i s o n s} = 2 \\text {m a r k s}\\right)",
+                        "issue": "The word \"vidal\" is a misspelling of \"valid\". Additionally, there are unnecessary spaces between letters inside the \\text{} commands, which will cause rendering issues.",
+                        "suggestion": "\\left(\\text{Any 2 valid comparisons} = 2 \\text{marks}\\right)"
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "8",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "Compare a misconception (myth) with reality. Support your answer with one example. [2]",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually sound. The definition of misconception versus reality is accurate, and the provided example distinguishing between 'hearing' and 'listening' is a valid and correct illustration of the concept within the context of communication skills.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "8",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "Compare a misconception (myth) with reality. Support your answer with one example. [2]",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 2,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "9",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "List two major challenges related to sustainable development in agriculture and water management. [2]",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "grammar",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "reduce availability of clean water for farming and daily use.",
+                        "issue": "The definite article 'the' is missing before 'availability'.",
+                        "suggestion": "reduce the availability of clean water for farming and daily use."
+                    },
+                    {
+                        "type": "structure",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "(1 \\text {m a r k e a c h} = 2 \\text {m a r k s})",
+                        "issue": "Incorrect LaTeX formatting. The \\text command has extra spaces between letters, which will cause rendering issues.",
+                        "suggestion": "(1 \\text{mark each} = 2 \\text{marks})"
+                    }
+                ],
+                "total_issues": 2
+            },
+            {
+                "item_id": "9",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "List two major challenges related to sustainable development in agriculture and water management. [2]",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "misapplication",
+                        "severity": "critical",
+                        "location": "Question text",
+                        "error_description": "The question's topic, 'sustainable development in agriculture and water management', is entirely outside the scope of the Grade 10 Information Technology (CBSE) curriculum. This content belongs to subjects like Social Science or Environmental Science.",
+                        "incorrect_content": "The question asks about challenges in sustainable development in agriculture and water management.",
+                        "correct_information": "A relevant question for the subject Information Technology should focus on topics like digital documentation, spreadsheets, database management systems, web applications, and security. For instance, a related but appropriate question could be: 'Explain how IT tools can help in promoting sustainable water management in agriculture.'"
+                    }
+                ],
+                "overall_assessment": "While the provided answer is factually correct for the topic of sustainable development, the entire Q&A item is conceptually incorrect in the context of an Information Technology assessment for Grade 10. The question is completely misaligned with the subject.",
+                "total_errors": 1
+            },
+            {
+                "item_id": "9",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "List two major challenges related to sustainable development in agriculture and water management. [2]",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "relevance",
+                        "severity": "critical",
+                        "location": "Question",
+                        "error_description": "The question's topic, 'sustainable development in agriculture and water management', is not part of the Grade 10 Information Technology (CBSE) curriculum. This content is appropriate for subjects like Social Science or Environmental Science, not IT.",
+                        "incorrect_value_or_statement": "The question asks about challenges in sustainable development in agriculture and water management.",
+                        "correct_value_or_statement": "A relevant question for the subject Information Technology should focus on topics like digital documentation, spreadsheets, database management systems, web applications, and security. For instance, a related but appropriate question could be: 'Explain how IT tools can help in promoting sustainable water management in agriculture.'",
+                        "impact_on_final_answer": "The entire Q&A item is invalid in the context of an Information Technology assessment. The provided answer, while factually correct for the topic asked, does not assess any knowledge from the IT curriculum, making it fundamentally incorrect for its intended purpose."
+                    }
+                ],
+                "solution_steps_verified": 2,
+                "overall_correctness": "incorrect",
+                "total_errors": 1
+            },
+            {
+                "item_id": "10",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "What cybersecurity measures can an employee take to protect personal and work data?",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "structure",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "(1 \\text {m a r k e a c h} = 2 \\text {m a r k s})",
+                        "issue": "The LaTeX command \\text is used incorrectly with spaces between each letter.",
+                        "suggestion": "(1 \\text{mark each} = 2 \\text{marks})"
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "10",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "What cybersecurity measures can an employee take to protect personal and work data?",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "missing_info",
+                        "severity": "high",
+                        "location": "Answer text",
+                        "error_description": "The answer omits the critical concept of Multi-Factor Authentication (MFA/2FA), a standard and highly effective security measure for protecting accounts and data. It provides a crucial second layer of security beyond just a password.",
+                        "incorrect_content": "The answer only lists using strong passwords and avoiding suspicious links as security measures.",
+                        "correct_information": "The answer should include enabling Two-Factor or Multi-Factor Authentication (2FA/MFA). This requires a user to provide two or more verification factors to gain access, such as a password plus a code from a smartphone app."
+                    },
+                    {
+                        "type": "missing_info",
+                        "severity": "medium",
+                        "location": "Answer text",
+                        "error_description": "The answer is incomplete as it only provides two basic measures. It lacks other fundamental cybersecurity practices necessary for a comprehensive data protection strategy.",
+                        "incorrect_content": "The answer provides only two cybersecurity measures: using strong passwords and avoiding suspicious links.",
+                        "correct_information": "A more complete answer should also include: 1. Keeping software and operating systems updated to patch security vulnerabilities. 2. Using a VPN (Virtual Private Network) on public Wi-Fi to encrypt internet traffic. 3. Locking the computer screen when away from the desk to prevent unauthorized physical access."
+                    }
+                ],
+                "overall_assessment": "The answer provides two valid but basic cybersecurity measures. However, it is conceptually incomplete as it omits several critical modern practices, most notably Multi-Factor Authentication (MFA). The answer is too brief for the allocated marks and lacks the depth expected for the topic.",
+                "total_errors": 2
+            },
+            {
+                "item_id": "10",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "What cybersecurity measures can an employee take to protect personal and work data?",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "high",
+                        "location": "Overall Answer",
+                        "error_description": "The answer is logically incomplete as it omits several fundamental cybersecurity practices that are crucial for protecting data. By presenting only two basic measures, it fails to provide a comprehensive response to the question.",
+                        "incorrect_value_or_statement": "The answer implies that using strong passwords and avoiding suspicious links are the primary or sufficient measures for an employee to take.",
+                        "correct_value_or_statement": "A comprehensive answer must also include other critical measures such as: enabling Multi-Factor Authentication (MFA), keeping software updated, using secure Wi-Fi (or a VPN), and being cautious about physical security (e.g., locking the screen).",
+                        "impact_on_final_answer": "The answer is only partially correct. It provides valid but basic information, leaving out more advanced and equally important security measures. This gives an incomplete picture of cybersecurity responsibilities."
+                    }
+                ],
+                "solution_steps_verified": 2,
+                "overall_correctness": "partially_correct",
+                "total_errors": 1
+            },
+            {
+                "item_id": "11",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "A team of four editors are collaborating on a company policy document using LibreOffice Writer. Before...",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "grammar",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "A team of four editors are collaborating",
+                        "issue": "The subject 'A team' is singular and requires a singular verb.",
+                        "suggestion": "A team of four editors is collaborating"
+                    },
+                    {
+                        "type": "punctuation",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "spreadsheet.Explain",
+                        "issue": "A space is required after the period.",
+                        "suggestion": "spreadsheet. Explain"
+                    }
+                ],
+                "answer_issues": [
+                    {
+                        "type": "structure",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "$\\rightarrow$",
+                        "issue": "The LaTeX command '\\rightarrow' should not be enclosed in dollar signs when used within the text.",
+                        "suggestion": "\\rightarrow"
+                    },
+                    {
+                        "type": "structure",
+                        "severity": "high",
+                        "location": "Answer explanation",
+                        "text": "\\begin{array}{l} \\text {(C o r r e c t W i r t e r s e t u p 1 m a r k +} \\ \n\\text {s h a r i n g c h e c k 1 m a r k = 2 m a r k s)} \n\\end{array}",
+                        "issue": "The text within the LaTeX \\text{} command has excessive spacing between letters, which will cause rendering issues.",
+                        "suggestion": "\\begin{array}{l} \\text{(Correct Writer setup 1 mark +} \\ \n\\text{sharing check 1 mark = 2 marks)} \n\\end{array}"
+                    }
+                ],
+                "total_issues": 4
+            },
+            {
+                "item_id": "11",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "A team of four editors are collaborating on a company policy document using LibreOffice Writer. Before...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The steps provided for enabling 'Track Changes' in LibreOffice Writer and for verifying the sharing status in LibreOffice Calc are accurate and align with the software's functionality.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "11",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "A team of four editors are collaborating on a company policy document using LibreOffice Writer. Before...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 2,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "12",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "(a) Before using the Share Document feature in LibreOffice Calc, what should you ensure about the file...",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "punctuation",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "Spreadsheet.If",
+                        "issue": "Missing space after a period, which makes the text harder to read.",
+                        "suggestion": "Spreadsheet. If"
+                    }
+                ],
+                "total_issues": 1
+            },
+            {
+                "item_id": "12",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "(a) Before using the Share Document feature in LibreOffice Calc, what should you ensure about the file...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The answer is conceptually correct. It accurately describes the preconditions for sharing a document in LibreOffice Calc and the correct method to verify that sharing has been disabled.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "12",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "(a) Before using the Share Document feature in LibreOffice Calc, what should you ensure about the file...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 2,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "13",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "A school database stores information about students and their admissions. In one table, Student_ID uni",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "13",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "A school database stores information about students and their admissions. In one table, Student_ID uni",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The explanation accurately defines both Primary Key and Foreign Key and correctly applies these concepts to the provided scenario. The examples given are appropriate and clear. No conceptual errors were found.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "13",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "A school database stores information about students and their admissions. In one table, Student_ID uni",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 2,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "14",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "During maintenance work in an office, the safety officer observed several issues — damaged wires, overl",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "14",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "During maintenance work in an office, the safety officer observed several issues — damaged wires, overl",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The identified electrical hazards (damaged wires, overloaded sockets, wet floors) are accurately described, and the suggested safety measures are appropriate and directly address the risks. There are no errors in the application of IT and workplace safety concepts.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "14",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "During maintenance work in an office, the safety officer observed several issues — damaged wires, overl",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "15",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "At a company, Ravi spends hours every day preparing sales reports, inserting dates, and formatting data",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "Macros",
+                        "issue": "The term 'Macros' should not be capitalized as it is a general technical term, not a proper noun.",
+                        "suggestion": "macros"
+                    }
+                ],
+                "answer_issues": [
+                    {
+                        "type": "word_choice",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "A Macro is",
+                        "issue": "The term 'Macro' should not be capitalized as it is a general technical term, not a proper noun.",
+                        "suggestion": "A macro is"
+                    }
+                ],
+                "total_issues": 2
+            },
+            {
+                "item_id": "15",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "At a company, Ravi spends hours every day preparing sales reports, inserting dates, and formatting data",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The definition of a macro is accurate, and the provided examples of its use in the workplace are relevant and appropriate for the given context.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "15",
+                "source_question_file": "section-b-6-15.md",
+                "source_answer_file": "section-b-6-15_ans.md",
+                "question_preview": "At a company, Ravi spends hours every day preparing sales reports, inserting dates, and formatting data. His manager suggests using Macros to automate these tasks.\n\nExplain what a Macro is and list three workplace situations where using macros can improve efficiency. [2]",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 2,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            }
+        ],
+        "section-b-16-21.md": [
+            {
+                "item_id": "16",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "During a workshop, Neha notices her colleague Arun is accidentally stuck to a live electrical wire. De...",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "16",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "During a workshop, Neha notices her colleague Arun is accidentally stuck to a live electrical wire. De...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. It provides the standard and safe procedure for rescuing a person from an electrical shock. The steps are based on the correct application of electrical principles, emphasizing cutting the power source and using non-conductive materials to ensure the rescuer's safety.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "16",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "During a workshop, Neha notices her colleague Arun is accidentally stuck to a live electrical wire. De...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 2,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "17",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Case Study:\n\nCase Study: An education institute is designing a digital learning portal in LibreOff...",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "structure",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "Case Study:\n\nCase Study:",
+                        "issue": "The heading 'Case Study:' is repeated, which is redundant and affects readability.",
+                        "suggestion": "Case Study:"
+                    }
+                ],
+                "answer_issues": [
+                    {
+                        "type": "punctuation",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "Wrap  $\\rightarrow$  Page Wrap",
+                        "issue": "The arrow symbol contains unnecessary spaces around it, which can affect rendering and readability.",
+                        "suggestion": "Wrap $\\rightarrow$ Page Wrap"
+                    }
+                ],
+                "total_issues": 2
+            },
+            {
+                "item_id": "17",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Case Study:\n\nCase Study: An education institute is designing a digital learning portal in LibreOff...",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "definition",
+                        "severity": "critical",
+                        "location": "Answer explanation (d)",
+                        "error_description": "The explanation for sub-question (d) incorrectly states that 'Page Wrap' allows text to flow beside a photo. In LibreOffice Writer, 'Page Wrap' (or 'Wrap Off') places the object on its own line, with text appearing only above and below it, not to the sides. The functionality described (text flowing to the left or right) is achieved by other settings like 'Wrap Left' or 'Wrap Right'.",
+                        "incorrect_content": "To make text flow beside a photo instead of below it, the designer should apply Wrap \\rightarrow Page Wrap, which places text to the left or right of the image while keeping the layout balanced.",
+                        "correct_information": "To make text flow beside a photo, options like 'Wrap Left', 'Wrap Right', or 'Optimal Page Wrap' should be used. The 'Page Wrap' (or 'Wrap Off') option ensures text appears only above and below the image, not beside it."
+                    }
+                ],
+                "overall_assessment": "The Q&A item correctly answers the first three sub-questions regarding image arrangement, anchoring, and optimal wrapping. However, it contains a critical error in the answer to sub-question (d), where it incorrectly defines and recommends 'Page Wrap' for flowing text beside an image. This is the opposite of the feature's actual function and is highly misleading.",
+                "total_errors": 1
+            },
+            {
+                "item_id": "17",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Case Study: An education institute is designing a digital learning portal in LibreOffice Writer with mu...",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "critical",
+                        "location": "Answer to sub-question (d)",
+                        "step_number": 4,
+                        "error_description": "The explanation for sub-question (d) provides incorrect reasoning. It recommends using 'Page Wrap' to make text flow beside a photo, but this feature does the opposite. In LibreOffice Writer, 'Page Wrap' (or 'Wrap Off') ensures text appears only above and below the object, not to its sides.",
+                        "incorrect_value_or_statement": "To make text flow beside a photo instead of below it, the designer should apply Wrap \\rightarrow Page Wrap, which places text to the left or right of the image while keeping the layout balanced.",
+                        "correct_value_or_statement": "To make text flow beside a photo, the designer should use options like 'Wrap Left', 'Wrap Right', or 'Optimal Page Wrap'. The 'Page Wrap' option places the object on its own line, preventing text from flowing to its sides.",
+                        "impact_on_final_answer": "The recommendation is fundamentally incorrect and would lead the user to the wrong solution. This makes the answer to sub-question (d) completely wrong and misleading."
+                    }
+                ],
+                "solution_steps_verified": 4,
+                "overall_correctness": "partially_correct",
+                "total_errors": 1
+            },
+            {
+                "item_id": "18",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Consider the table given below and answer the questions that follow:\n\n[4]\n\n<table><tr><td>Sudent Name</",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "spelling",
+                        "severity": "high",
+                        "location": "Question text",
+                        "text": "Sudent Name",
+                        "issue": "There is a spelling mistake in the table's header.",
+                        "suggestion": "Student Name"
+                    }
+                ],
+                "answer_issues": [],
+                "total_issues": 1
+            },
+            {
+                "item_id": "18",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Consider the table given below and answer the questions that follow:\n\n[4]\n\n<table><tr><td>Sudent Name</td><td>Roll Number</td><td>Class</td><td>Marks</td></tr><tr><td>Vikram Patel</td><td>201</td><td>10A</td><td>490</td></tr><tr><td>Aisha Khan</td><td>202</td><td>10A</td><td>450</td></tr><tr><td>Ravi Gupta</td><td>203</td><td>10C</td><td>455</td></tr><tr><td>Zara Khan</td><td>204</td><td>10B</td><td>420</td></tr></table>\n\n(a) Identify all attributes in the t...",
+                "has_errors": true,
+                "conceptual_errors": [
+                    {
+                        "type": "misapplication",
+                        "severity": "high",
+                        "location": "Answer text, part (c)",
+                        "error_description": "The answer suggests 'Student Name' as a potential alternate key, conditioned on the names being unique. An alternate key must be inherently unique by design, not by coincidence in the sample data. Student names are not guaranteed to be unique in any real-world scenario, making this a poor and conceptually flawed suggestion.",
+                        "incorrect_content": "An alternate key can be Student Name, if names in the class are unique.",
+                        "correct_information": "There are no suitable alternate keys in the given table. An alternate key must be a candidate key that was not chosen as the primary key. For a field to be a candidate key, it must guarantee uniqueness for every possible record. 'Student Name' cannot guarantee uniqueness as multiple students can have the same name."
+                    },
+                    {
+                        "type": "definition",
+                        "severity": "medium",
+                        "location": "Answer text, part (d)",
+                        "error_description": "The explanation incorrectly defines a primary key as being only a single field, which it then contrasts with a composite key. This is a common misconception. A primary key can itself be a composite key. The primary key is simply the chosen candidate key to uniquely identify records, and it can be composed of one or more attributes.",
+                        "incorrect_content": "A Primary Key is a single unique field such as Roll Number. A Composite Key, however, is formed by using two or more fields together to uniquely identify a record.",
+                        "correct_information": "A primary key is a constraint that uniquely identifies each record in a table. It can consist of a single attribute (a simple key) or multiple attributes (a composite key). A composite key is simply a key that contains two or more attributes. Therefore, a primary key can also be a composite key."
+                    }
+                ],
+                "overall_assessment": "The answer contains two conceptual errors. It incorrectly identifies 'Student Name' as a potential alternate key, which is a serious misapplication of the concept of keys in a database. It also provides an inaccurate definition by stating that a primary key must be a single field, failing to explain that a primary key can also be a composite key.",
+                "total_errors": 2
+            },
+            {
+                "item_id": "18",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Consider the table given below and answer the questions that follow:\n\n[4]\n\n<table><tr><td>Sudent Name</td><td>Roll Number</td><td>Class</td><td>Marks</td></tr><tr><td>Vikram Patel</td><td>201</td><td>10A</td><td>490</td></tr><tr><td>Aisha Khan</td><td>202</td><td>10A</td><td>450</td></tr><tr><td>Ravi Gupta</td><td>203</td><td>10C</td><td>455</td></tr><tr><td>Zara Khan</td><td>204</td><td>10B</td><td>420</td></tr></table>\n\n(a) Identify all attributes in the t...",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "high",
+                        "location": "Answer part (c)",
+                        "step_number": 3,
+                        "error_description": "The answer suggests 'Student Name' as a potential alternate key on the condition that the names are unique in the sample data. This is logically flawed. A candidate key (and thus an alternate key) must be inherently unique by design, not by coincidence. Student names are not guaranteed to be unique in a real-world database.",
+                        "incorrect_value_or_statement": "An alternate key can be Student Name, if names in the class are unique.",
+                        "correct_value_or_statement": "There are no suitable alternate keys in the given table. An alternate key is a candidate key that was not chosen as the primary key. For an attribute to be a candidate key, it must guarantee uniqueness for every possible record. 'Student Name' does not provide this guarantee.",
+                        "impact_on_final_answer": "This provides an incorrect answer for part (c) and reflects a fundamental misunderstanding of the properties of database keys."
+                    },
+                    {
+                        "type": "logic",
+                        "severity": "medium",
+                        "location": "Answer part (d)",
+                        "step_number": 4,
+                        "error_description": "The answer incorrectly defines a primary key as exclusively being a 'single unique field', which it then contrasts with a composite key. This is a common misconception. A primary key is the main identifier for a record and can be composed of either a single attribute or multiple attributes (making it a composite key).",
+                        "incorrect_value_or_statement": "A Primary Key is a single unique field such as Roll Number. A Composite Key, however, is formed by using two or more fields together to uniquely identify a record.",
+                        "correct_value_or_statement": "A primary key is a constraint that uniquely identifies each record in a table. It can consist of a single attribute (a simple key) or multiple attributes (a composite key). A composite key is any key formed from two or more attributes. Therefore, a primary key can itself be a composite key.",
+                        "impact_on_final_answer": "This provides an inaccurate and misleading definition for part (d), creating a false distinction between the two concepts."
+                    }
+                ],
+                "solution_steps_verified": 4,
+                "overall_correctness": "partially_correct",
+                "total_errors": 2
+            },
+            {
+                "item_id": "19",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Rahul, a data entry operator, spends long hours working on a computer. Recently, he has started expe...",
+                "has_issues": false,
+                "question_issues": [],
+                "answer_issues": [],
+                "total_issues": 0
+            },
+            {
+                "item_id": "19",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Rahul, a data entry operator, spends long hours working on a computer. Recently, he has started expe...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The question asks for preventive ergonomic measures for a data entry operator, and the answer provides four standard and accurate recommendations: proper chair/posture, correct monitor placement, appropriate keyboard/mouse height, and the importance of taking regular breaks. The information is sound and relevant for the topic of health and safety in IT.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "19",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Rahul, a data entry operator, spends long hours working on a computer. Recently, he has started expe...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "20",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "A hospital manages a medical records database in LibreOffice Base with tables for Departments and Doct...",
+                "has_issues": true,
+                "question_issues": [
+                    {
+                        "type": "punctuation",
+                        "severity": "medium",
+                        "location": "Question text",
+                        "text": "Give one example  ",
+                        "issue": "The text contains a double space.",
+                        "suggestion": "Give one example "
+                    }
+                ],
+                "answer_issues": [],
+                "total_issues": 1
+            },
+            {
+                "item_id": "20",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "A hospital manages a medical records database in LibreOffice Base with tables for Departments and Doct...",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually correct. The explanations for referential integrity, delete restrict, update cascade, set null, and set default are all accurate and well-supported by relevant examples within the given database context.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "20",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "A hospital manages a medical records database in LibreOffice Base with tables for Departments and Doct...",
+                "question_type": "conceptual",
+                "has_errors": false,
+                "logical_errors": [],
+                "solution_steps_verified": 4,
+                "overall_correctness": "correct",
+                "total_errors": 0
+            },
+            {
+                "item_id": "21",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Nirupam is creating a comprehensive project document in LibreOffice Calc with multiple spreadsheets an...",
+                "has_issues": true,
+                "question_issues": [],
+                "answer_issues": [
+                    {
+                        "type": "structure",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "Insert  $\\rightarrow$  Link to External Data",
+                        "issue": "The text contains extra spaces around the arrow, which is a formatting inconsistency.",
+                        "suggestion": "Insert $\\rightarrow$ Link to External Data"
+                    },
+                    {
+                        "type": "structure",
+                        "severity": "medium",
+                        "location": "Answer explanation",
+                        "text": "Edit  $\\rightarrow$  Hyperlink",
+                        "issue": "The text contains extra spaces around the arrow, which is a formatting inconsistency.",
+                        "suggestion": "Edit $\\rightarrow$ Hyperlink"
+                    }
+                ],
+                "total_issues": 2
+            },
+            {
+                "item_id": "21",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Nirupam is creating a comprehensive project document in LibreOffice Calc with multiple spreadsheets and external data sources. He initially used absolute hyperlinks but they broke when shared with others. His friend suggests relative hyperlinks.\n\n(a) Why did absolute hyperlinks fail and how do relative hyperlinks solve this?  \n(b) How does the Target in Document feature improve large spreadsheet navigation?  \n(c) Which feature should Nirupam use to fetch live data from government websites?  \n(d) What steps should Nirupam follow to edit or remove a hyperlink?",
+                "has_errors": false,
+                "conceptual_errors": [],
+                "overall_assessment": "The Q&A item is conceptually sound. It accurately explains the difference between absolute and relative hyperlinks, the use of the 'Target in Document' feature, how to link to external data from websites, and the procedure for editing or removing hyperlinks in LibreOffice Calc. All explanations are correct and align with the functionalities of the software.",
+                "total_errors": 0
+            },
+            {
+                "item_id": "21",
+                "source_question_file": "section-b-16-21.md",
+                "source_answer_file": "section-b-16-21_ans.md",
+                "question_preview": "Nirupam is creating a comprehensive project document in LibreOffice Calc with multiple spreadsheets and external data sources. He initially used absolute hyperlinks but they broke when shared with others. His friend suggests relative hyperlinks.\n\n(a) Why did absolute hyperlinks fail and how do relative hyperlinks solve this?  \n(b) How does the Target in Document feature improve large spreadsheet navigation?  \n(c) Which feature should Nirupam use to fetch live data from government websites?  \n(d) What steps should Nirupam follow to edit or remove a hyperlink?",
+                "question_type": "conceptual",
+                "has_errors": true,
+                "logical_errors": [
+                    {
+                        "type": "logic",
+                        "severity": "medium",
+                        "location": "Answer part (c)",
+                        "step_number": 3,
+                        "error_description": "The explanation of the 'Link to External Data' feature misrepresents its update mechanism. It states that the feature 'updates values automatically whenever the source page changes', which implies a real-time, push-based update. In reality, the data is updated on a user-defined schedule (e.g., every N minutes) or through a manual refresh, not instantaneously upon a change in the source.",
+                        "incorrect_value_or_statement": "This feature updates values automatically whenever the source page changes.",
+                        "correct_value_or_statement": "This feature allows for the data to be updated periodically (at set intervals) or manually by the user.",
+                        "impact_on_final_answer": "This inaccuracy could mislead the user about the 'live' nature of the data link, leading to incorrect expectations about how and when the spreadsheet data will reflect changes from the external website. The core feature mentioned is correct, but its behavior is described incorrectly."
+                    }
+                ],
+                "solution_steps_verified": 4,
+                "overall_correctness": "partially_correct",
+                "total_errors": 1
+            }
+        ]
+    },
+    "inspection_results": [
+        {
+            "item_id": "(i)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "Vikram works in a team where members come from different countries and have different communication styl...",
+            "has_issues": false,
+            "question_issues": [],
+            "answer_issues": [],
+            "total_issues": 0
+        },
+        {
+            "item_id": "(i)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "Vikram works in a team where members come from different countries and have different communication styl...",
+            "has_errors": false,
+            "conceptual_errors": [],
+            "overall_assessment": "The Q&A item is conceptually sound. The question accurately describes a scenario involving a cultural barrier to communication, and the selected answer is correct. The explanation correctly defines cultural barriers and accurately distinguishes them from interpersonal, semantic, and organizational barriers.",
+            "total_errors": 0
+        },
+        {
+            "item_id": "(i)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "Vikram works in a team where members come from different countries and have different communication styl...",
+            "question_type": "conceptual",
+            "has_errors": false,
+            "logical_errors": [],
+            "solution_steps_verified": 4,
+            "overall_correctness": "correct",
+            "total_errors": 0
+        },
+        {
+            "item_id": "(ii)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "Priya is working on a project deadline but realizes she's been procrastinating. Which aspect of Self-M...",
+            "has_issues": false,
+            "question_issues": [],
+            "answer_issues": [],
+            "total_issues": 0
+        },
+        {
+            "item_id": "(ii)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "Priya is working on a project deadline but realizes she's been procrastinating. Which aspect of Self-M...",
+            "has_errors": false,
+            "conceptual_errors": [],
+            "overall_assessment": "The Q&A item is conceptually correct. The scenario of procrastination is accurately mapped to the self-management skill of Time Management, and the explanations for the incorrect options are also valid.",
+            "total_errors": 0
+        },
+        {
+            "item_id": "(ii)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "Priya is working on a project deadline but realizes she's been procrastinating. Which aspect of Self-M...",
+            "question_type": "conceptual",
+            "has_errors": false,
+            "logical_errors": [],
+            "solution_steps_verified": 4,
+            "overall_correctness": "correct",
+            "total_errors": 0
+        },
+        {
+            "item_id": "(iii)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "When a user wants to install a new software on their computer, what type of software needs to run firs",
+            "has_issues": true,
+            "question_issues": [],
+            "answer_issues": [
+                {
+                    "type": "grammar",
+                    "severity": "medium",
+                    "location": "Answer explanation",
+                    "text": "System Software is a broad category",
+                    "issue": "Inconsistent capitalization of the term 'System Software'. It should be in lowercase for consistency.",
+                    "suggestion": "System software is a broad category"
+                }
+            ],
+            "total_issues": 1
+        },
+        {
+            "item_id": "(iii)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "When a user wants to install a new software on their computer, what type of software needs to run first to manage hardware resources? [1]\n\n(a) Application Software\n\n(b) Operating System\n\n(c) Utility Software\n\n(d) System Software",
+            "has_errors": false,
+            "conceptual_errors": [],
+            "overall_assessment": "The Q&A item is conceptually correct. The answer, 'Operating System', is the most specific and accurate choice. The explanation correctly justifies this by highlighting the OS's primary role in managing hardware resources and providing a platform for other software, while also properly differentiating it from the broader category of 'System Software' and other distractors.",
+            "total_errors": 0
+        },
+        {
+            "item_id": "(iii)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "When a user wants to install a new software on their computer, what type of software needs to run first to manage hardware resources? [1]\n\n(a) Application Software\n\n(b) Operating System\n\n(c) Utility Software\n\n(d) System Software",
+            "question_type": "conceptual",
+            "has_errors": false,
+            "logical_errors": [],
+            "solution_steps_verified": 1,
+            "overall_correctness": "correct",
+            "total_errors": 0
+        },
+        {
+            "item_id": "(iv)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "Before launching a new venture in an unfamiliar market, the entrepreneur's first and most critical step s...",
+            "has_issues": true,
+            "question_issues": [
+                {
+                    "type": "word_choice",
+                    "severity": "medium",
+                    "location": "Question text",
+                    "text": "analyze market demand and competition through rigorous research and analysis",
+                    "issue": "The phrase 'research and analysis' is slightly redundant, as analysis is an inherent part of the research process. Using both terms can be tautological.",
+                    "suggestion": "analyze market demand and competition through rigorous research"
+                }
+            ],
+            "answer_issues": [
+                {
+                    "type": "spelling",
+                    "severity": "medium",
+                    "location": "Objective Answer",
+                    "text": "Analyse",
+                    "issue": "The text uses the British English spelling ('Analyse'), which is inconsistent with the American English spelling ('analyze') used in the question. For consistency, it is better to use one form throughout.",
+                    "suggestion": "Analyze"
+                },
+                {
+                    "type": "word_choice",
+                    "severity": "medium",
+                    "location": "Objective Answer",
+                    "text": "Analyse market demand and competition through research and analysis",
+                    "issue": "The phrase 'research and analysis' is slightly redundant, as analysis is an inherent part of the research process. Using both terms can be tautological.",
+                    "suggestion": "Analyse market demand and competition through research"
+                }
+            ],
+            "total_issues": 3
+        },
+        {
+            "item_id": "(iv)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "Before launching a new venture in an unfamiliar market, the entrepreneur's first and most critical step s...",
+            "has_errors": false,
+            "conceptual_errors": [],
+            "overall_assessment": "The Q&A item is conceptually sound. The question correctly identifies a critical step in entrepreneurship, and the answer and explanation are accurate and well-justified. The item effectively tests the student's understanding of market research as a foundational entrepreneurial skill.",
+            "total_errors": 0
+        },
+        {
+            "item_id": "(iv)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "Before launching a new venture in an unfamiliar market, the entrepreneur's first and most critical step s...",
+            "question_type": "conceptual",
+            "has_errors": false,
+            "logical_errors": [],
+            "solution_steps_verified": 4,
+            "overall_correctness": "correct",
+            "total_errors": 0
+        },
+        {
+            "item_id": "(v)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "The SDGs focus on creating a sustainable future by addressing which of the following? [1]\n\n(a) Only en...",
+            "has_issues": true,
+            "question_issues": [],
+            "answer_issues": [
+                {
+                    "type": "word_choice",
+                    "severity": "medium",
+                    "location": "Answer explanation",
+                    "text": "They include social but also economic and environmental goals.",
+                    "issue": "The phrase 'but also' is used without a preceding 'not only', which makes the sentence structure slightly awkward.",
+                    "suggestion": "They include social, economic, and environmental goals."
+                }
+            ],
+            "total_issues": 1
+        },
+        {
+            "item_id": "(v)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "The SDGs focus on creating a sustainable future by addressing which of the following? [1]\n\n(a) Only en...",
+            "has_errors": true,
+            "conceptual_errors": [
+                {
+                    "type": "contradiction",
+                    "severity": "high",
+                    "location": "Objective Answer and Explanation",
+                    "error_description": "The objective answer is given as '(c) Both environmental and social issues', which is incomplete. The explanation correctly states that the SDGs include 'environmental protection, social equality, economic growth, and peace', covering all three dimensions (social, economic, and environmental). This creates a direct contradiction between the selected answer and the explanation.",
+                    "incorrect_content": "The objective answer is '(c) Both environmental and social issues'.",
+                    "correct_information": "The SDGs address a wide range of challenges across three core dimensions: social, economic, and environmental. Therefore, a complete answer must include the economic dimension as well."
+                }
+            ],
+            "overall_assessment": "The Q&A item has a high-severity conceptual error. The chosen answer contradicts the explanation, as it omits the economic dimension of the Sustainable Development Goals, which is a fundamental aspect of the concept.",
+            "total_errors": 1
+        },
+        {
+            "item_id": "(v)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "The SDGs focus on creating a sustainable future by addressing which of the following? [1]\n\n(a) Only en...",
+            "question_type": "conceptual",
+            "has_errors": true,
+            "logical_errors": [
+                {
+                    "type": "logic",
+                    "severity": "critical",
+                    "location": "Objective Answer and Explanation",
+                    "error_description": "The explanation correctly states that the SDGs address 'environmental protection, social equality, economic growth, and peace'. However, the selected objective answer is '(c) Both environmental and social issues', which omits the 'economic' dimension explicitly mentioned in the explanation. This creates a logical contradiction, as the reasoning provided in the explanation proves that the chosen answer is incomplete and therefore incorrect.",
+                    "incorrect_value_or_statement": "The selected answer is (c), which is 'Both environmental and social issues'.",
+                    "correct_value_or_statement": "Based on the explanation, the SDGs cover environmental, social, and economic dimensions. Given the options, none are fully correct, but the explanation invalidates the chosen answer (c) by highlighting the inclusion of 'economic growth'. A better question would have an option for all three.",
+                    "impact_on_final_answer": "The final answer is incorrect because it is incomplete. The contradiction between the provided answer and the explanation misleads the student about the comprehensive nature of the Sustainable Development Goals."
+                }
+            ],
+            "solution_steps_verified": 1,
+            "overall_correctness": "incorrect",
+            "total_errors": 1
+        },
+        {
+            "item_id": "(vi)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "In the SMART goal framework, what does the T stand for? [1]\n\n(a) Tangible\n\n(b) Time-bound\n\n(c) Thorough\n\n(d) ",
+            "has_issues": false,
+            "question_issues": [],
+            "answer_issues": [],
+            "total_issues": 0
+        },
+        {
+            "item_id": "(vi)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "In the SMART goal framework, what does the T stand for? [1]\n\n(a) Tangible\n\n(b) Time-bound\n\n(c) Thorough\n\n(d) ",
+            "has_errors": false,
+            "conceptual_errors": [],
+            "overall_assessment": "The Q&A item is conceptually correct. The question accurately asks for the meaning of 'T' in the SMART goal framework, and the provided answer 'Time-bound' is correct. The explanation correctly defines 'Time-bound' in this context and accurately invalidates the other options.",
+            "total_errors": 0
+        },
+        {
+            "item_id": "(vi)",
+            "source_question_file": "section-a-p-1.md",
+            "source_answer_file": "section-a-p-1_ans.md",
+            "question_preview": "In the SMART goal framework, what does the T stand for? [1]\n\n(a) Tangible\n\n(b) Time-bound\n\n(c) Thorough\n\n(d) Technical",
+            "question_type": "conceptual",
+            "has_errors": false,
+            "logical_errors": [],
+            "solution_steps_verified": 1,
+            "overall_correctness": "correct",
+            "total_errors": 0
+        }
+    ]
+}

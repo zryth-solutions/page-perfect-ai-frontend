@@ -8,7 +8,35 @@
 npm install
 ```
 
-### 2. Start the Application
+### 2. Configure Environment Variables
+
+```bash
+# Copy the example environment file
+cp .env.example .env
+```
+
+Then edit `.env` and add your Firebase configuration:
+
+```env
+REACT_APP_FIREBASE_API_KEY=your_api_key_here
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
+REACT_APP_FIREBASE_MEASUREMENT_ID=your_measurement_id
+```
+
+**Where to find these values:**
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Select your project
+3. Click the gear icon ⚙️ → Project Settings
+4. Scroll down to "Your apps" section
+5. Copy the configuration values
+
+**Security Note:** Never commit your `.env` file to version control!
+
+### 3. Start the Application
 
 ```bash
 npm start

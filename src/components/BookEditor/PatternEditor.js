@@ -12,7 +12,6 @@ import './PatternEditor.css';
 const PatternEditor = ({ bookId, onPatternsSubmit, onCancel }) => {
   const [fullMdContent, setFullMdContent] = useState('');
   const [loadingContent, setLoadingContent] = useState(true);
-  const [headings, setHeadings] = useState([]);
   const [patterns, setPatterns] = useState({
     // QUESTIONS SECTION
     competencyStart: '# Competency-Focused Questions',
@@ -58,15 +57,14 @@ const PatternEditor = ({ bookId, onPatternsSubmit, onCancel }) => {
     explanationAchieversEnd: '' // End of file
   });
 
-  const [showAdvanced, setShowAdvanced] = useState(false);
   const [selectedHeading, setSelectedHeading] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
   const [detectingPatterns, setDetectingPatterns] = useState(false);
   const [detectionError, setDetectionError] = useState(null);
 
   // Load full.md on mount
   useEffect(() => {
     loadFullMd();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bookId]);
 
   const loadFullMd = async () => {

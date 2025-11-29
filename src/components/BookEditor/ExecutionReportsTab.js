@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';
-import { doc, getDoc, setDoc, updateDoc, collection } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import './ExecutionReportsTab.css';
 
 const GEMINI_MODELS = [
@@ -97,6 +97,7 @@ const ExecutionReportsTab = ({ book, currentUser }) => {
       loadConfigAndExecutions();
       validateFiles();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [book?.id]);
 
   const loadConfigAndExecutions = async () => {

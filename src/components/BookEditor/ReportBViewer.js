@@ -14,7 +14,6 @@ import './LaTeXRenderer.css';
 const ReportBViewer = ({ bookId, userId }) => {
   const {
     reportData,
-    feedback,
     manualIssues,
     loading,
     error,

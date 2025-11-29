@@ -18,6 +18,7 @@ const ReportBTab = ({ book, currentUser }) => {
 
   useEffect(() => {
     checkReportExists();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [book?.id]);
 
   const checkReportExists = async () => {

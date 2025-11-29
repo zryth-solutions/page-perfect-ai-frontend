@@ -4,7 +4,7 @@
   },
   "storage": [
     {
-      "bucket": "pageperfectai.appspot.com",
+      "bucket": "pageperfectai.firebasestorage.app",
       "rules": "storage.rules"
     }
   ],

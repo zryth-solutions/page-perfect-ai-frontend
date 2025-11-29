@@ -86,11 +86,6 @@ const PatternEditor = ({ bookId, onPatternsSubmit, onCancel }) => {
 
       const text = await response.text();
       setFullMdContent(text);
-
-      // Extract all headings
-      const headingMatches = text.match(/^#+\s+.+$/gm) || [];
-      const uniqueHeadings = [...new Set(headingMatches)].sort();
-      setHeadings(uniqueHeadings);
     } catch (err) {
       console.error('Error loading full.md:', err);
       setFullMdContent('Error loading full.md');

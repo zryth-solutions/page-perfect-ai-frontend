@@ -220,12 +220,6 @@ const ReportBViewer = ({ bookId, userId }) => {
     }
   };
 
-  // Get source files for manual issue form
-  const sourceFiles = useMemo(() => {
-    if (!reportData?.reportData?.results_by_source_file) return [];
-    return Object.keys(reportData.reportData.results_by_source_file);
-  }, [reportData]);
-
   // Initialize editing notes from feedback only once when issues load
   useEffect(() => {
     const initialNotes = {};
@@ -278,7 +272,7 @@ const ReportBViewer = ({ bookId, userId }) => {
         <div className="report-meta">
           <span>{flattenedIssues.length} total issues</span>
           <span>•</span>
-          <span>{sourceFiles.length} files</span>
+          <span>{Object.keys(reportData.reportData.results_by_source_file || {}).length} files</span>
         </div>
       </div>
 
@@ -534,7 +528,6 @@ const ReportBViewer = ({ bookId, userId }) => {
           Found an issue that's not in the report? Add it here.
         </p>
         <ManualIssueForm
-          sourceFiles={sourceFiles}
           manualIssues={manualIssues || []}
           onAddIssue={addIssue}
           onDeleteIssue={removeIssue}

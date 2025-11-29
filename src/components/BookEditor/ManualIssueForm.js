@@ -6,10 +6,9 @@
 import React, { useState } from 'react';
 import './ManualIssueForm.css';
 
-const ManualIssueForm = ({ sourceFiles = [], manualIssues = [], onAddIssue, onDeleteIssue }) => {
+const ManualIssueForm = ({ manualIssues = [], onAddIssue, onDeleteIssue }) => {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
-    sourceFile: '',
     questionNumber: '',
     issueDescription: ''
   });
@@ -26,18 +25,21 @@ const ManualIssueForm = ({ sourceFiles = [], manualIssues = [], onAddIssue, onDe
     e.preventDefault();
 
     // Validation
-    if (!formData.sourceFile || !formData.questionNumber || !formData.issueDescription.trim()) {
+    if (!formData.questionNumber || !formData.issueDescription.trim()) {
       alert('Please fill in all fields');
       return;
     }
 
     try {
       setSubmitting(true);
-      await onAddIssue(formData);
+      // Add sourceFile as "Manual Entry" when saving
+      await onAddIssue({
+        ...formData,
+        sourceFile: 'Manual Entry'
+      });
       
       // Reset form
       setFormData({
-        sourceFile: '',
         questionNumber: '',
         issueDescription: ''
       });
@@ -53,7 +55,6 @@ const ManualIssueForm = ({ sourceFiles = [], manualIssues = [], onAddIssue, onDe
 
   const handleCancel = () => {
     setFormData({
-      sourceFile: '',
       questionNumber: '',
       issueDescription: ''
     });
@@ -90,22 +91,6 @@ const ManualIssueForm = ({ sourceFiles = [], manualIssues = [], onAddIssue, onDe
         </button>
       ) : (
         <form className="manual-issue-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="sourceFile">Source File *</label>
-            <select
-              id="sourceFile"
-              value={formData.sourceFile}
-              onChange={(e) => handleInputChange('sourceFile', e.target.value)}
-              required
-              disabled={submitting}
-            >
-              <option value="">Select a file...</option>
-              {sourceFiles.map(file => (
-                <option key={file} value={file}>{file}</option>
-              ))}
-            </select>
-          </div>
-
           <div className="form-group">
             <label htmlFor="questionNumber">Question Number *</label>
             <input
@@ -159,8 +144,7 @@ const ManualIssueForm = ({ sourceFiles = [], manualIssues = [], onAddIssue, onDe
             {manualIssues.map(issue => (
               <div key={issue.id} className="manual-issue-item">
                 <div className="issue-item-header">
-                  <span className="issue-file">{issue.sourceFile}</span>
-                  <span className="issue-question">Q{issue.questionNumber}</span>
+                  <span className="issue-question">{issue.questionNumber}</span>
                 </div>
                 <div className="issue-item-description">
                   {issue.issueDescription}

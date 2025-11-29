@@ -14,6 +14,7 @@ import BookReport from './components/BookReport';
 import BookEditor from './components/BookEditor';
 import AdminPanel from './components/AdminPanel';
 import UserManagement from './components/UserManagement';
+import ReportBPage from './pages/ReportBPage';
 import './App.css';
 
 function App() {
@@ -78,6 +79,10 @@ function App() {
         <Route 
           path="/book/:bookId/editor" 
           element={user ? <BookEditor /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="/report-b/:bookId" 
+          element={user ? <ReportBPage /> : <Navigate to="/login" />} 
         />
       </Routes>
     </Router>

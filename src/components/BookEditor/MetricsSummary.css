@@ -1,0 +1,232 @@
+/* MetricsSummary Styles */
+
+.metrics-summary {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f3ff 0%, #faf9fc 100%);
+  border-radius: 12px;
+  border: 1px solid #e0d7f5;
+}
+
+.metrics-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.metrics-header h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.metrics-header p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.metric-total {
+  border-color: #e0e0e0;
+}
+
+.metric-total:hover {
+  border-color: #8b5cf6;
+}
+
+.metric-accepted {
+  border-color: #c8e6c9;
+}
+
+.metric-accepted:hover {
+  border-color: #4caf50;
+}
+
+.metric-rejected {
+  border-color: #ffcdd2;
+}
+
+.metric-rejected:hover {
+  border-color: #ef4444;
+}
+
+.metric-pending {
+  border-color: #fff9c4;
+}
+
+.metric-pending:hover {
+  border-color: #ffc107;
+}
+
+.metric-notes {
+  border-color: #e1f5fe;
+}
+
+.metric-notes:hover {
+  border-color: #03a9f4;
+}
+
+.metric-manual {
+  border-color: #f3e5f5;
+}
+
+.metric-manual:hover {
+  border-color: #9c27b0;
+}
+
+.metric-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.metric-content {
+  flex: 1;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.metric-percentage {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 0.25rem;
+}
+
+.metrics-progress {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.progress-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 24px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.6s ease;
+}
+
+.progress-accepted {
+  background: linear-gradient(90deg, #4caf50 0%, #66bb6a 100%);
+}
+
+.progress-rejected {
+  background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+}
+
+.progress-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-accepted {
+  background: #4caf50;
+}
+
+.legend-rejected {
+  background: #ef4444;
+}
+
+.legend-pending {
+  background: #f0f0f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .metrics-summary {
+    padding: 1.5rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .metric-card {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .metric-icon {
+    font-size: 1.75rem;
+  }
+
+  .metric-value {
+    font-size: 1.75rem;
+  }
+
+  .progress-legend {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

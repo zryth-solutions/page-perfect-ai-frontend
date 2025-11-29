@@ -1,0 +1,97 @@
+// Firestore Security Rules for Report B Feature
+// Add these rules to your firestore.rules file
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Report B Data (single document per book)
+    match /books/{bookId}/reportB/data {
+      // Anyone authenticated can read
+      allow read: if request.auth != null;
+      
+      // Only book owner can write (upload/update report)
+      allow write: if request.auth != null && 
+                      get(/databases/$(database)/documents/books/$(bookId)).data.userId == request.auth.uid;
+    }
+    
+    // Report B Feedback (user-specific feedback on issues)
+    match /books/{bookId}/reportB_feedback/{feedbackId} {
+      // Users can only read their own feedback
+      allow read: if request.auth != null && 
+                     resource.data.userId == request.auth.uid;
+      
+      // Users can only create/update their own feedback
+      allow create: if request.auth != null && 
+                       request.resource.data.userId == request.auth.uid;
+      
+      allow update: if request.auth != null && 
+                       resource.data.userId == request.auth.uid &&
+                       request.resource.data.userId == request.auth.uid;
+      
+      // Users can delete their own feedback
+      allow delete: if request.auth != null && 
+                       resource.data.userId == request.auth.uid;
+    }
+    
+    // Report B Manual Issues (user-reported issues)
+    match /books/{bookId}/reportB_manualIssues/{issueId} {
+      // Users can only read their own manual issues
+      allow read: if request.auth != null && 
+                     resource.data.userId == request.auth.uid;
+      
+      // Users can only create their own manual issues
+      allow create: if request.auth != null && 
+                       request.resource.data.userId == request.auth.uid;
+      
+      // Users can update their own manual issues
+      allow update: if request.auth != null && 
+                       resource.data.userId == request.auth.uid &&
+                       request.resource.data.userId == request.auth.uid;
+      
+      // Users can delete their own manual issues
+      allow delete: if request.auth != null && 
+                       resource.data.userId == request.auth.uid;
+    }
+    
+    // Optional: Admin access to all feedback (for future metrics dashboard)
+    // Uncomment if you want admins to see all user feedback
+    /*
+    match /books/{bookId}/reportB_feedback/{feedbackId} {
+      allow read: if request.auth != null && (
+        resource.data.userId == request.auth.uid ||
+        get(/databases/$(database)/documents/books/$(bookId)).data.userId == request.auth.uid
+      );
+    }
+    
+    match /books/{bookId}/reportB_manualIssues/{issueId} {
+      allow read: if request.auth != null && (
+        resource.data.userId == request.auth.uid ||
+        get(/databases/$(database)/documents/books/$(bookId)).data.userId == request.auth.uid
+      );
+    }
+    */
+  }
+}
+
+// Testing Commands (Firebase CLI)
+// ================================
+
+// Test report upload (as book owner)
+// firebase firestore:test --project=your-project-id
+
+// Test feedback creation (as user)
+// firebase firestore:test --project=your-project-id
+
+// Deployment
+// ==========
+// firebase deploy --only firestore:rules
+
+// Notes:
+// ------
+// 1. These rules ensure data privacy and security
+// 2. Users can only see/modify their own feedback
+// 3. Only book owners can upload reports
+// 4. All operations require authentication
+// 5. Consider enabling admin access for metrics (commented section)
+

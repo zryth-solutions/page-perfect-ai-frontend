@@ -1,0 +1,255 @@
+/* ManualIssueForm Styles */
+
+.manual-issue-form-container {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  border: 2px dashed #d0d0d0;
+}
+
+.manual-issue-header {
+  margin-bottom: 1.5rem;
+}
+
+.manual-issue-header h3 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.manual-issue-header p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.btn-add-issue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px solid #8b5cf6;
+  border-radius: 8px;
+  color: #8b5cf6;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-add-issue:hover {
+  background: #8b5cf6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.btn-add-issue span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.manual-issue-form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #333;
+  transition: border-color 0.2s ease;
+}
+
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.form-group select:disabled,
+.form-group input:disabled,
+.form-group textarea:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-submit,
+.btn-cancel {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  flex: 1;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-cancel {
+  background: white;
+  color: #666;
+  border: 2px solid #d0d0d0;
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background: #f5f5f5;
+  border-color: #b0b0b0;
+}
+
+.manual-issues-list {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e0e0e0;
+}
+
+.manual-issues-list h4 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.issues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.manual-issue-item {
+  position: relative;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem 3rem 1rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.manual-issue-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: #d0d0d0;
+}
+
+.issue-item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.issue-file {
+  padding: 0.25rem 0.75rem;
+  background: #f0f0f0;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #666;
+  font-family: 'Courier New', monospace;
+}
+
+.issue-question {
+  padding: 0.25rem 0.75rem;
+  background: #e3f2fd;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.issue-item-description {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.btn-delete-issue {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  padding: 0.25rem;
+}
+
+.btn-delete-issue:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .manual-issue-form-container {
+    padding: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn-submit,
+  .btn-cancel {
+    width: 100%;
+  }
+
+  .manual-issue-item {
+    padding-right: 2.5rem;
+  }
+}
+

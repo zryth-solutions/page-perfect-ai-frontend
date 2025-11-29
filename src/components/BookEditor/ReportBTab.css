@@ -1,0 +1,80 @@
+/* ReportBTab Styles */
+
+.report-b-tab {
+  min-height: 400px;
+}
+
+.admin-section {
+  margin-bottom: 2rem;
+}
+
+.admin-notice {
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.admin-notice p {
+  color: #2e7d32;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+  margin: 3rem 0;
+}
+
+.user-section {
+  /* No specific styles needed, children handle their own styling */
+}
+
+.no-report-message {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.no-report-message h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.no-report-message p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.loading-state p {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.spinner-large {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #f0f0f0;
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

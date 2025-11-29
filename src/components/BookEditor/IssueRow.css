@@ -1,0 +1,281 @@
+/* IssueRow Styles */
+
+.issue-row {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.issue-row:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: #d0d0d0;
+}
+
+.issue-row.saving {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.issue-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.issue-type-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-formatting {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.badge-conceptual {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.badge-logical {
+  background: #fce4ec;
+  color: #c2185b;
+}
+
+.badge-default {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.severity-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.severity-high,
+.severity-critical {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.severity-medium {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.severity-low {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.type-badge {
+  padding: 0.25rem 0.5rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.issue-content {
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  background: #fafafa;
+  border-radius: 6px;
+}
+
+.issue-field {
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.issue-field:last-child {
+  margin-bottom: 0;
+}
+
+.field-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.field-value {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.field-value.suggestion {
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.field-code {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #333;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.field-code.error {
+  border-left: 3px solid #c62828;
+  background: #fff5f5;
+}
+
+.issue-feedback {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1rem;
+}
+
+.feedback-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.btn-feedback {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-feedback:hover:not(:disabled) {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+  transform: translateY(-1px);
+}
+
+.btn-feedback.active {
+  background: #8b5cf6;
+  border-color: #8b5cf6;
+  color: white;
+}
+
+.btn-feedback.btn-reject.active {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+.btn-feedback:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.feedback-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.feedback-notes label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.feedback-notes textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #333;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.feedback-notes textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.feedback-notes textarea:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.saving-indicator {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.spinner.tiny {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #e0e0e0;
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .issue-row {
+    padding: 1rem;
+  }
+
+  .feedback-actions {
+    flex-direction: column;
+  }
+
+  .btn-feedback {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

@@ -20,10 +20,10 @@ const ProjectBooks = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [showMdUploadModal, setShowMdUploadModal] = useState(false);
-  const [showHtmlUploadModal, setShowHtmlUploadModal] = useState(false);
+  const [showJsonUploadModal, setShowJsonUploadModal] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
   const [mdFile, setMdFile] = useState(null);
-  const [htmlFile, setHtmlFile] = useState(null);
+  const [jsonFile, setJsonFile] = useState(null);
   const [deletingBookId, setDeletingBookId] = useState(null);
   const itemsPerPage = 10;
   const navigate = useNavigate();
@@ -46,11 +46,25 @@ const ProjectBooks = () => {
 
     const unsubscribe = onSnapshot(
       q,
-      (snapshot) => {
-        const booksData = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
+      async (snapshot) => {
+        const booksData = await Promise.all(snapshot.docs.map(async (bookDoc) => {
+          const bookData = {
+            id: bookDoc.id,
+            ...bookDoc.data()
+          };
+          
+          // Check if Report B exists for this book
+          try {
+            const reportBDoc = await getDoc(doc(db, 'books', bookDoc.id, 'reportB', 'data'));
+            bookData.hasReportB = reportBDoc.exists();
+          } catch (error) {
+            console.error('Error checking Report B:', error);
+            bookData.hasReportB = false;
+          }
+          
+          return bookData;
         }));
+        
         // Sort on client side
         booksData.sort((a, b) => {
           const dateA = a.uploadedAt ? new Date(a.uploadedAt) : new Date(0);
@@ -196,12 +210,12 @@ const ProjectBooks = () => {
     }
   };
 
-  const handleHtmlFileSelect = (e) => {
+  const handleJsonFileSelect = (e) => {
     const file = e.target.files[0];
-    if (file && (file.name.endsWith('.html') || file.name.endsWith('.htm'))) {
-      setHtmlFile(file);
+    if (file && file.name.endsWith('.json')) {
+      setJsonFile(file);
     } else {
-      alert('Please select an HTML file (.html or .htm)');
+      alert('Please select a JSON file (.json)');
     }
   };
 
@@ -285,9 +299,9 @@ const ProjectBooks = () => {
     }
   };
 
-  const handleHtmlUpload = async (e) => {
+  const handleJsonUpload = async (e) => {
     e.preventDefault();
-    if (!htmlFile || !selectedBook) return;
+    if (!jsonFile || !selectedBook) return;
 
     setUploading(true);
     setUploadProgress(0);
@@ -296,67 +310,56 @@ const ProjectBooks = () => {
       const reader = new FileReader();
       
       reader.onload = async (event) => {
-        const htmlContent = event.target.result;
+        const jsonContent = event.target.result;
         
         try {
-          const pathParts = selectedBook.filePath.split('/');
-          const folderPath = pathParts.slice(0, -1).join('/');
-          const originalFileName = pathParts[pathParts.length - 1];
-          const baseName = originalFileName.split('.')[0];
-          const htmlFileName = `${baseName}_report_b.html`;
-          const htmlPath = `${folderPath}/${htmlFileName}`;
-          const storageRef = ref(storage, `books/${htmlPath}`);
-          
-          const uploadTask = uploadBytesResumable(storageRef, htmlFile);
+          // Validate JSON
+          let reportData;
+          try {
+            reportData = JSON.parse(jsonContent);
+          } catch (parseError) {
+            alert('Invalid JSON file. Please check the file format.');
+            setUploading(false);
+            return;
+          }
 
-          uploadTask.on('state_changed',
-            (snapshot) => {
-              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              setUploadProgress(progress);
-            },
-            (error) => {
-              console.error('Upload error:', error);
-              alert('Failed to upload HTML file: ' + error.message);
-              setUploading(false);
-            },
-            async () => {
-              try {
-                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                
-                const bookRef = doc(db, 'books', selectedBook.id);
-                await updateDoc(bookRef, {
-                  reportDataB: htmlContent,
-                  htmlFileUrl: downloadURL,
-                  htmlFileName: htmlFileName,
-                  reportBProcessedAt: new Date().toISOString()
-                });
+          // Validate report structure
+          if (!reportData.report_metadata || !reportData.results_by_source_file) {
+            alert('Invalid report structure. Missing required fields (report_metadata or results_by_source_file).');
+            setUploading(false);
+            return;
+          }
 
-                alert('HTML file uploaded and Report B updated successfully!');
-                setShowHtmlUploadModal(false);
-                setHtmlFile(null);
-                setSelectedBook(null);
-                setUploading(false);
-                setUploadProgress(0);
-              } catch (error) {
-                console.error('Error updating document:', error);
-                alert('File uploaded but failed to update database: ' + error.message);
-                setUploading(false);
-              }
-            }
+          // Upload to Firestore using reportBService
+          const { uploadReportB } = await import('../services/reportBService');
+          await uploadReportB(selectedBook.id, reportData, jsonFile.name, auth.currentUser.uid);
+
+          // Update local state to show View button immediately
+          setBooks(prevBooks => 
+            prevBooks.map(b => 
+              b.id === selectedBook.id ? { ...b, hasReportB: true } : b
+            )
           );
+
+          alert('JSON report uploaded successfully! Users can now review it.');
+          setShowJsonUploadModal(false);
+          setJsonFile(null);
+          setSelectedBook(null);
+          setUploading(false);
+          setUploadProgress(0);
         } catch (error) {
-          console.error('Upload initialization error:', error);
-          alert('Failed to start upload: ' + error.message);
+          console.error('Upload error:', error);
+          alert('Failed to upload report: ' + error.message);
           setUploading(false);
         }
       };
 
       reader.onerror = () => {
-        alert('Failed to read HTML file');
+        alert('Failed to read JSON file');
         setUploading(false);
       };
 
-      reader.readAsText(htmlFile);
+      reader.readAsText(jsonFile);
     } catch (error) {
       console.error('Upload initialization error:', error);
       alert('Failed to start upload: ' + error.message);
@@ -595,7 +598,7 @@ const ProjectBooks = () => {
                     )}
                     <td>
                       <div className="actions-cell">
-                        <button
+                        {/* <button
                           className="btn-view"
                           onClick={() => navigate(`/book/${book.id}/editor`)}
                           title="Open Editor"
@@ -605,7 +608,7 @@ const ProjectBooks = () => {
                           }}
                         >
                           Open Editor
-                        </button>
+                        </button> */}
                         {isAdmin && (
                           <>
                             <button
@@ -622,9 +625,9 @@ const ProjectBooks = () => {
                               className="btn-upload-html"
                               onClick={() => {
                                 setSelectedBook(book);
-                                setShowHtmlUploadModal(true);
+                                setShowJsonUploadModal(true);
                               }}
-                              title="Upload Report B (HTML)"
+                              title="Upload Report B (JSON)"
                               style={{
                                 padding: '8px 16px',
                                 background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
@@ -650,12 +653,11 @@ const ProjectBooks = () => {
                           View Report A
                         </button>
                       )}
-                      {book.reportDataB && (
+                      {book.hasReportB && (
                         <button
                           className="btn-view"
-                          onClick={() => navigate(`/book/${book.id}?report=B`)}
-                          disabled={book.status !== 'completed'}
-                          title="View Report B (HTML)"
+                          onClick={() => window.open(`/report-b/${book.id}`, '_blank')}
+                          title="View Report B (Quality Check)"
                           style={{
                             background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
                             border: 'none'
@@ -778,7 +780,7 @@ const ProjectBooks = () => {
                 </div>
                 
                 <div className="mobile-card-footer">
-                  <button
+                  {/* <button
                     className="btn-view mobile-btn-view"
                     onClick={() => navigate(`/book/${book.id}/editor`)}
                     style={{
@@ -787,7 +789,7 @@ const ProjectBooks = () => {
                     }}
                   >
                     Open Editor
-                  </button>
+                  </button> */}
                   {isAdmin && (
                     <>
                       <button
@@ -803,7 +805,7 @@ const ProjectBooks = () => {
                         className="btn-upload-html mobile-btn-upload-md"
                         onClick={() => {
                           setSelectedBook(book);
-                          setShowHtmlUploadModal(true);
+                          setShowJsonUploadModal(true);
                         }}
                         style={{
                           background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)'
@@ -822,11 +824,10 @@ const ProjectBooks = () => {
                       View Report A
                     </button>
                   )}
-                  {book.reportDataB && (
+                  {book.hasReportB && (
                     <button
                       className="btn-view mobile-btn-view"
-                      onClick={() => navigate(`/book/${book.id}?report=B`)}
-                      disabled={book.status !== 'completed'}
+                      onClick={() => window.open(`/report-b/${book.id}`, '_blank')}
                       style={{
                         background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
                         border: 'none'
@@ -1048,32 +1049,32 @@ const ProjectBooks = () => {
         </div>
       )}
 
-      {showHtmlUploadModal && selectedBook && (
-        <div className="modal-overlay" onClick={() => !uploading && setShowHtmlUploadModal(false)}>
+      {showJsonUploadModal && selectedBook && (
+        <div className="modal-overlay" onClick={() => !uploading && setShowJsonUploadModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h2>Upload Report B (HTML) for "{selectedBook.title}"</h2>
+              <h2>Upload Report B (JSON) for "{selectedBook.title}"</h2>
               <button
                 className="modal-close"
-                onClick={() => !uploading && setShowHtmlUploadModal(false)}
+                onClick={() => !uploading && setShowJsonUploadModal(false)}
                 disabled={uploading}
               >
                 ×
               </button>
             </div>
-            <form onSubmit={handleHtmlUpload} className="upload-form">
+            <form onSubmit={handleJsonUpload} className="upload-form">
               <div className="form-group">
                 <label>User: {selectedBook.userEmail}</label>
                 <label>Original File: {selectedBook.fileName}</label>
               </div>
               <div className="form-group">
-                <label htmlFor="htmlFile">Select HTML File</label>
+                <label htmlFor="jsonFile">Select JSON Report File</label>
                 <div className="file-input-wrapper">
                   <input
                     type="file"
-                    id="htmlFile"
-                    onChange={handleHtmlFileSelect}
-                    accept=".html,.htm"
+                    id="jsonFile"
+                    onChange={handleJsonFileSelect}
+                    accept=".json"
                     required
                     disabled={uploading}
                   />
@@ -1082,10 +1083,10 @@ const ProjectBooks = () => {
                       <path d="M10 14V6M10 6L7 9M10 6L13 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <path d="M4 14V16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                     </svg>
-                    {htmlFile ? htmlFile.name : 'Choose an HTML file'}
+                    {jsonFile ? jsonFile.name : 'Choose a JSON file'}
                   </div>
                 </div>
-                <p className="file-hint">Upload the .html report file (Report B) for A/B testing</p>
+                <p className="file-hint">Upload the quality check report in JSON format</p>
               </div>
               {uploading && (
                 <div className="upload-progress">
@@ -1095,14 +1096,14 @@ const ProjectBooks = () => {
                       style={{ width: `${uploadProgress}%` }}
                     ></div>
                   </div>
-                  <p className="progress-text">{Math.round(uploadProgress)}% uploaded</p>
+                  <p className="progress-text">Processing...</p>
                 </div>
               )}
               <div className="modal-actions">
                 <button
                   type="button"
                   className="btn-secondary"
-                  onClick={() => setShowHtmlUploadModal(false)}
+                  onClick={() => setShowJsonUploadModal(false)}
                   disabled={uploading}
                 >
                   Cancel
@@ -1110,7 +1111,7 @@ const ProjectBooks = () => {
                 <button
                   type="submit"
                   className="btn-gradient"
-                  disabled={uploading || !htmlFile}
+                  disabled={uploading || !jsonFile}
                 >
                   {uploading ? (
                     <span className="btn-loading">

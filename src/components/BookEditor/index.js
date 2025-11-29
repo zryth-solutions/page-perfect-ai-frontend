@@ -11,4 +11,10 @@ export { default as MarkdownEditor } from './MarkdownEditor';
 export { default as PDFViewer } from './PDFViewer';
 export { default as FullMdViewer } from './FullMdViewer';
 export { default as ImageGallery } from './ImageGallery';
+export { default as ReportBTab } from './ReportBTab';
+export { default as ReportBUpload } from './ReportBUpload';
+export { default as ReportBViewer } from './ReportBViewer';
+export { default as IssueRow } from './IssueRow';
+export { default as ManualIssueForm } from './ManualIssueForm';
+export { default as MetricsSummary } from './MetricsSummary';
 

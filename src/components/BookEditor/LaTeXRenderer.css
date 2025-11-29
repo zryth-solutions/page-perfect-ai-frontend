@@ -1,0 +1,43 @@
+/* LaTeX Renderer Styles */
+
+.latex-content {
+  display: inline;
+  line-height: 1.6;
+}
+
+.latex-inline {
+  display: inline;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.latex-display {
+  display: block;
+  margin: 10px 0;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.latex-error {
+  color: #ef4444;
+  font-family: monospace;
+  font-size: 0.9em;
+  background: #fef2f2;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* KaTeX overrides for better table display */
+.latex-inline .katex {
+  font-size: 1em;
+}
+
+.latex-display .katex {
+  font-size: 1.1em;
+}
+
+/* Ensure LaTeX doesn't break table layout */
+.latex-content .katex-html {
+  white-space: normal;
+}
+

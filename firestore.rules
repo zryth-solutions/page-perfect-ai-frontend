@@ -83,6 +83,55 @@ service cloud.firestore {
                      (resource.data.userId == request.auth.uid || 
                       ownsProject() ||
                       isAdmin());
+      
+      // Report B subcollection - Quality Check Reports
+      match /reportB/{document=**} {
+        // Anyone authenticated can read Report B
+        allow read: if request.auth != null;
+        
+        // Only admins can write (upload/update) Report B
+        allow write: if request.auth != null && isAdmin();
+      }
+      
+      // Report B Feedback subcollection
+      match /reportB_feedback/{feedbackId} {
+        // Users can only read their own feedback
+        allow read: if request.auth != null && 
+                       resource.data.userId == request.auth.uid;
+        
+        // Users can create their own feedback
+        allow create: if request.auth != null && 
+                         request.resource.data.userId == request.auth.uid;
+        
+        // Users can update their own feedback
+        allow update: if request.auth != null && 
+                         resource.data.userId == request.auth.uid &&
+                         request.resource.data.userId == request.auth.uid;
+        
+        // Users can delete their own feedback
+        allow delete: if request.auth != null && 
+                         resource.data.userId == request.auth.uid;
+      }
+      
+      // Report B Manual Issues subcollection
+      match /reportB_manualIssues/{issueId} {
+        // Users can only read their own manual issues
+        allow read: if request.auth != null && 
+                       resource.data.userId == request.auth.uid;
+        
+        // Users can create their own manual issues
+        allow create: if request.auth != null && 
+                         request.resource.data.userId == request.auth.uid;
+        
+        // Users can update their own manual issues
+        allow update: if request.auth != null && 
+                         resource.data.userId == request.auth.uid &&
+                         request.resource.data.userId == request.auth.uid;
+        
+        // Users can delete their own manual issues
+        allow delete: if request.auth != null && 
+                         resource.data.userId == request.auth.uid;
+      }
     }
   }
 }
